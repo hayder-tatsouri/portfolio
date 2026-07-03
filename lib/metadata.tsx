@@ -43,7 +43,7 @@ const metadataInfos: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "favicon.png", //TODO etre sur licon marche
+    icon: "/img/favicon.png",
   },
   metadataBase: new URL("https://raseraa0.github.io"),
 };

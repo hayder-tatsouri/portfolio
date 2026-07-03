@@ -70,7 +70,7 @@ export default function Home() {
       {/* Conteneur parallax qui contiendra chaques pages*/}
       <Parallax
         ref={parallaxRef}
-        pages={7}
+        pages={6}
         style={{ top: "0", left: "0" }}
         className="p-animation bg-blue-9"
       >

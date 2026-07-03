@@ -51,8 +51,12 @@ const textsEn = {
   },
   projects: {
     seeMore: "Click to expand",
+    viewDetails: "View details",
     noDescription: "No description available.",
     altProjects: "Project illustration",
+    backToProjects: "Back to projects",
+    sourceCode: "Source code",
+    notFound: "Project not found.",
   },
   skills: {
     altSkills: "Icon representing",

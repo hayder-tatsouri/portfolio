@@ -1,43 +1,15 @@
-
 /**
  * @name Projects.tsx
  * @type Page
  */
 
-import { useState, useEffect } from "react";
 import { ParallaxLayer } from "@react-spring/parallax";
 import Project from "./components/Project";
 import { useOnScreen } from "./hooks/useOnScreen";
 import { cn } from "@/lib/utils";
 
 function Projects() {
-  // Id du projet expand (-1 = aucun)
-  const [expandedProjectId, setExpandedProjectId] = useState(-1);
-
-  const handleExpandProject = (id: number) => {
-    if (window.innerWidth > 768) {
-      setExpandedProjectId(-1);
-    } else {
-      setExpandedProjectId(
-        expandedProjectId === id ? -1 : id
-      );
-    }
-  };
-
-  // Dé-expand tout lors du resize
-  useEffect(() => {
-    const handleResize = () => {
-      setExpandedProjectId(-1);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  // Références pour l'animation d'apparition
+  // Références pour l'apparition au scroll
   const [project1Ref, project1Visible] =
     useOnScreen<HTMLDivElement>();
   const [project2Ref, project2Visible] =
@@ -87,41 +59,29 @@ function Projects() {
 
   return (
     <ParallaxLayer
-      offset={3}
+      offset={2}
       speed={0}
       factor={2}
-      className="flex items-center justify-center bg-blue-9 dark:bg-blue-4"
+      className="flex items-start justify-center bg-blue-9 dark:bg-blue-4"
     >
-<div
-  className="
-    flex
-    w-full
-    max-w-2xl
-    flex-col
-    items-center
-    gap-8
-    p-8
-    mx-auto
-  "
->
-  {projects.map((project) => (
-    <Project
-      key={project.id}
-      ref={project.ref}
-      id={project.id}
-      isExpanded={expandedProjectId === project.id}
-      onExpand={handleExpandProject}
-      className={cn(
-        "transition-all duration-1000 ease-in-out hover:duration-300",
-        project.delay,
-        project.visible ? "" : "pointer-events-none opacity-0"
-      )}
-    />
-  ))}
-</div>
+      <div className="grid w-full max-w-7xl grid-cols-1 gap-8 p-8 md:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project) => (
+          <Project
+            key={project.id}
+            ref={project.ref}
+            id={project.id}
+            className={cn(
+              "transition-all duration-1000 ease-in-out hover:duration-300",
+              project.delay,
+              project.visible
+                ? ""
+                : "pointer-events-none opacity-0",
+            )}
+          />
+        ))}
+      </div>
     </ParallaxLayer>
   );
 }
 
 export default Projects;
-
