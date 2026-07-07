@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 55" fill="currentColor">
+  <!-- CRJ / Embraer E-Jet style regional -->
+  <path d="M15 28 Q15 24 32 25 L140 24 Q150 24 155 26 L168 27 Q172 28 168 29 L155 30 Q150 32 140 32 L32 31 Q15 32 15 28 Z" opacity="0.95"/>
+  <!-- Swept wings (slightly smaller) -->
+  <path d="M70 28 L108 28 L125 10 Q127 7 123 8 L62 18 Z" opacity="0.85"/>
+  <path d="M70 28 L108 28 L125 46 Q127 49 123 48 L62 38 Z" opacity="0.85"/>
+  <!-- Tail fin -->
+  <path d="M20 28 L28 28 L32 12 Q33 8 29 10 L18 18 Z" opacity="0.8"/>
+  <!-- Horizontal stabilizer -->
+  <path d="M16 28 L32 28 L36 20 L14 22 Z" opacity="0.7"/>
+  <path d="M16 28 L32 28 L36 36 L14 34 Z" opacity="0.7"/>
+  <!-- Rear-mounted engines -->
+  <ellipse cx="30" cy="22" rx="6" ry="3" opacity="0.7"/>
+  <ellipse cx="30" cy="34" rx="6" ry="3" opacity="0.7"/>
+</svg>

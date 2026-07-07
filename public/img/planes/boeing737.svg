@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" fill="currentColor">
+  <!-- Boeing 737-800 style narrow-body -->
+  <path d="M10 30 Q10 26 30 27 L160 26 Q170 26 175 28 L190 29 Q195 30 190 31 L175 32 Q170 34 160 34 L30 33 Q10 34 10 30 Z" opacity="0.95"/>
+  <!-- Wings swept -->
+  <path d="M80 30 L120 30 L140 8 Q142 5 138 6 L70 18 Z" opacity="0.85"/>
+  <path d="M80 30 L120 30 L140 52 Q142 55 138 54 L70 42 Z" opacity="0.85"/>
+  <!-- Tail fin -->
+  <path d="M22 30 L30 30 L34 12 Q35 8 30 10 L20 18 Z" opacity="0.8"/>
+  <!-- Horizontal stabilizer -->
+  <path d="M18 30 L35 30 L40 22 L15 24 Z" opacity="0.7"/>
+  <path d="M18 30 L35 30 L40 38 L15 36 Z" opacity="0.7"/>
+  <!-- Engines -->
+  <ellipse cx="95" cy="38" rx="8" ry="4" opacity="0.7"/>
+  <ellipse cx="115" cy="38" rx="8" ry="4" opacity="0.7"/>
+</svg>

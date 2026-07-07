@@ -22,7 +22,7 @@ function Skills() {
 
   return (
     <ParallaxLayer
-      offset={5}
+      offset={4}
       speed={0}
       className="min-[600px] flex flex-col items-center bg-blue-9 dark:bg-blue-4"
     >

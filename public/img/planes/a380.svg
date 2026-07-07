@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 70" fill="currentColor">
+  <!-- Airbus A380 style wide-body (double-deck, 4 engines) -->
+  <path d="M12 35 Q12 29 35 30 L175 29 Q185 29 192 32 L205 34 Q210 35 205 36 L192 38 Q185 41 175 41 L35 40 Q12 41 12 35 Z" opacity="0.95"/>
+  <!-- Large swept wings -->
+  <path d="M85 35 L135 35 L160 6 Q163 2 158 4 L72 22 Z" opacity="0.85"/>
+  <path d="M85 35 L135 35 L160 64 Q163 68 158 66 L72 48 Z" opacity="0.85"/>
+  <!-- Tall tail fin -->
+  <path d="M20 35 L32 35 L38 10 Q40 5 35 8 L18 20 Z" opacity="0.8"/>
+  <!-- Horizontal stabilizer -->
+  <path d="M16 35 L38 35 L44 25 L13 28 Z" opacity="0.7"/>
+  <path d="M16 35 L38 35 L44 45 L13 42 Z" opacity="0.7"/>
+  <!-- 4 Engines -->
+  <ellipse cx="92" cy="44" rx="7" ry="3.5" opacity="0.7"/>
+  <ellipse cx="108" cy="46" rx="7" ry="3.5" opacity="0.7"/>
+  <ellipse cx="124" cy="46" rx="7" ry="3.5" opacity="0.7"/>
+  <ellipse cx="140" cy="44" rx="7" ry="3.5" opacity="0.7"/>
+</svg>

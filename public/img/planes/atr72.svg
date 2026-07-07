@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 65" fill="currentColor">
+  <!-- ATR 72 turboprop - high wing, T-tail -->
+  <path d="M15 35 Q15 31 35 32 L145 31 Q155 31 160 33 L170 34 Q175 35 170 36 L160 37 Q155 39 145 39 L35 38 Q15 39 15 35 Z" opacity="0.95"/>
+  <!-- High straight wings -->
+  <path d="M65 33 L115 33 L130 10 Q132 7 128 8 L55 14 Z" opacity="0.85"/>
+  <path d="M65 37 L115 37 L130 60 Q132 63 128 62 L55 56 Z" opacity="0.85"/>
+  <!-- T-tail vertical -->
+  <path d="M22 35 L30 35 L33 14 Q34 10 30 12 L20 22 Z" opacity="0.8"/>
+  <!-- T-tail horizontal (at top) -->
+  <path d="M20 14 L38 14 L40 10 L18 10 Z" opacity="0.75"/>
+  <path d="M20 14 L38 14 L40 18 L18 18 Z" opacity="0.75"/>
+  <!-- Propeller discs on wings -->
+  <circle cx="80" cy="22" r="8" opacity="0.35" stroke="currentColor" stroke-width="1" fill="none"/>
+  <circle cx="100" cy="22" r="8" opacity="0.35" stroke="currentColor" stroke-width="1" fill="none"/>
+  <!-- Engine nacelles -->
+  <ellipse cx="80" cy="22" rx="5" ry="3" opacity="0.6"/>
+  <ellipse cx="100" cy="22" rx="5" ry="3" opacity="0.6"/>
+</svg>

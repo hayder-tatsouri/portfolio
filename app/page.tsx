@@ -7,7 +7,9 @@
 import { IParallax, Parallax } from "@react-spring/parallax";
 import { useEffect, useRef, useState } from "react";
 import Hero from "./Hero";
+import CountryFlag from "./components/CountryFlag";
 import LoadingScreen from "./components/LoadingScreen";
+import FlyingPlane from "./components/FlyingPlane";
 import About from "./About";
 import Projects from "./Projects";
 import Skills from "./Skills";
@@ -37,6 +39,9 @@ export default function Home() {
   // Indicateur pour savoir si on est en haut de la page
   const [isTop, setIsTop] = useState(true);
 
+  // Show planes only on the hero (first page)
+  const [showPlanes, setShowPlanes] = useState(true);
+
   /**
    * Lorsque l'on scroll, on vérifié si on est au top pour afficher
    * ou pas le bouton go to top
@@ -46,6 +51,10 @@ export default function Home() {
       const scrollTop = parallaxRef.current.container.current.scrollTop;
       const pageHeight = parallaxRef.current.space;
       setIsTop(10 * scrollTop < 9 * pageHeight);
+
+      // Hide planes after scrolling past ~80% of first page
+      const onePageHeight = pageHeight / 6;
+      setShowPlanes(scrollTop < onePageHeight * 0.8);
     }
   };
 
@@ -60,8 +69,19 @@ export default function Home() {
 
   return (
     <main>
+      {/* Country flag of the visitor */}
+      <CountryFlag />
+
       {/* Ecran de chargement; visible uniquement avant le 1er rendu du Hero */}
       {loading && <LoadingScreen />}
+
+      {/* Flying planes overlay - only visible on hero section */}
+      <div
+        className="pointer-events-none fixed inset-0 z-20 transition-opacity duration-500"
+        style={{ height: "100vh", opacity: showPlanes ? 1 : 0, pointerEvents: showPlanes ? "none" : "none" }}
+      >
+        <FlyingPlane />
+      </div>
 
       <BackToTopButton
         parallaxRef={parallaxRef}

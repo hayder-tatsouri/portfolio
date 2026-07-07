@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./style/globals.css";
+import "./style/flyingPlane.css";
 import { fontInter } from "@/lib/font";
 import { cn } from "@/lib/utils";
 import metadataInfos from "@/lib/metadata";

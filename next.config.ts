@@ -1,15 +1,14 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-  output: "export",
-};
+const isProd = process.env.NODE_ENV === "production";
 
-module.exports = {
+const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  output: "export"
-}
+  // Only use static export for production (GitHub Pages).
+  // In dev, we need API routes for the OpenSky proxy.
+  ...(isProd ? { output: "export" } : {}),
+};
 
 export default nextConfig;

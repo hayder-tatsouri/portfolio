@@ -19,6 +19,8 @@ const projects = [
     image_path: wallpaperGeneratorImg,
     link: "https://github.com/Raseraa0/Wallpaper",
     color: "#c2410c",
+    tech: ["Python", "Pillow", "NumPy", "Color Theory"],
+    demo: "",
   },
   {
     id: 2,
@@ -30,6 +32,8 @@ const projects = [
     image_path: neuralNetworkFromScratchImg,
     link: "https://github.com/Raseraa0/NeuralNetworkFromScratch",
     color: "#0f766e",
+    tech: ["Python", "NumPy", "Matplotlib", "Deep Learning"],
+    demo: "",
   },
   {
     id: 3,
@@ -41,6 +45,8 @@ const projects = [
     image_path: rayTracingImg,
     link: "https://github.com/Raseraa0/RayTracing",
     color: "#6d28d9",
+    tech: ["C++", "Linear Algebra", "3D Graphics", "Shading"],
+    demo: "",
   },
   {
     id: 4,
@@ -52,6 +58,8 @@ const projects = [
     image_path: wallpaperGeneratorImg,
     link: "https://github.com/Raseraa0/Wallpaper",
     color: "#0891b2",
+    tech: ["Python", "Pillow", "Color Quantization"],
+    demo: "",
   },
   {
     id: 5,
@@ -63,6 +71,8 @@ const projects = [
     image_path: neuralNetworkFromScratchImg,
     link: "https://github.com/Raseraa0/NeuralNetworkFromScratch",
     color: "#b45309",
+    tech: ["Python", "NumPy", "Mini-batch SGD", "Visualization"],
+    demo: "",
   },
   {
     id: 6,
@@ -74,6 +84,8 @@ const projects = [
     image_path: rayTracingImg,
     link: "https://github.com/Raseraa0/RayTracing",
     color: "#be123c",
+    tech: ["C++", "Materials", "Procedural Textures", "PBR"],
+    demo: "",
   },
 ];
 

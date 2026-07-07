@@ -1,0 +1,104 @@
+/* Flying Planes - Firewatch palette */
+
+@keyframes flyRight {
+  from { transform: translateX(-150px); }
+  to { transform: translateX(calc(100vw + 150px)); }
+}
+
+@keyframes flyLeft {
+  from { transform: translateX(calc(100vw + 150px)); }
+  to { transform: translateX(-150px); }
+}
+
+.planes-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.plane-track {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+}
+
+.plane-item {
+  position: relative;
+  display: inline-block;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.plane-item:hover {
+  animation-play-state: paused !important;
+}
+
+.plane-svg {
+  display: block;
+  /* Tint SVG black → dark blue (#003b64) + shadow */
+  filter: brightness(0) saturate(100%) invert(14%) sepia(72%) saturate(2800%) hue-rotate(189deg) brightness(92%) contrast(103%) drop-shadow(0 2px 3px rgba(0, 59, 100, 0.4));
+}
+
+.plane-label {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 2px;
+  white-space: nowrap;
+  font-size: 10px;
+  font-family: monospace;
+  color: #003b64;
+  opacity: 0.85;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.plane-item:hover .plane-label {
+  opacity: 0;
+}
+
+.plane-tooltip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(0, 37, 69, 0.9);
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+  font-family: monospace;
+  opacity: 0;
+  scale: 0.9;
+  transition: opacity 0.2s, scale 0.2s;
+  pointer-events: none;
+}
+
+.plane-item:hover .plane-tooltip {
+  opacity: 1;
+  scale: 1;
+}
+
+.plane-tooltip-callsign {
+  font-size: 11px;
+  font-weight: 700;
+  color: #a2fff4;
+}
+
+.plane-tooltip-detail {
+  font-size: 9px;
+  color: #c4ebff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plane-item {
+    animation: none !important;
+  }
+}
