@@ -56,6 +56,7 @@ function ProjectDetailClient({ id }: Props) {
   const accentColor = selectedProject.color;
   const techStack = "tech" in selectedProject ? (selectedProject.tech as string[]) : [];
   const demoUrl = "demo" in selectedProject ? (selectedProject.demo as string) : "";
+  const videoId = "videoId" in selectedProject ? (selectedProject.videoId as string) : "";
 
   return (
     <main className="min-h-screen bg-blue-9 text-white-1">
@@ -191,6 +192,33 @@ function ProjectDetailClient({ id }: Props) {
               ))}
             </div>
 
+            {/* Video section */}
+            {videoId && (
+              <motion.div
+                className="mt-4 overflow-hidden rounded-xl border border-blue-7/40"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.45 }}
+              >
+                <div
+                  className="px-4 py-2 text-xs font-semibold uppercase tracking-wider"
+                  style={{ backgroundColor: accentColor + "20", color: accentColor }}
+                >
+                  Video
+                </div>
+                <div className="aspect-video w-full">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${videoId}?rel=0`}
+                    title={`${selectedProject.title} video`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="h-full w-full"
+                  />
+                </div>
+              </motion.div>
+            )}
+
             {/* Demo / Video section */}
             {demoUrl && (
               <motion.div
@@ -246,9 +274,7 @@ function ProjectDetailClient({ id }: Props) {
                 About
               </h2>
               <p className="text-sm leading-relaxed text-blue-1">
-                {"detailed_description" in selectedProject
-                  ? selectedProject.detailed_description
-                  : selectedProject.description}
+                {selectedProject.detailed_description}
               </p>
             </div>
 

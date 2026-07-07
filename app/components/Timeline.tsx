@@ -189,33 +189,40 @@ function Timeline({ className = "" }: Props) {
       )}
     >
       {/* Etape ensimag */}
+     {/* Etape Bac */}
       <TimelineStep
-        name={texts.about.timeline.ensimag.name}
-        desc={texts.about.timeline.ensimag.desc}
-        date={texts.about.timeline.ensimag.date}
+        name={texts.about.timeline.bac.name}
+        desc={texts.about.timeline.bac.desc}
+        date={texts.about.timeline.bac.date}
         isFirst
       />
 
-      {/* Etape Oxyl */}
+      {/* Etape IPEIM */}
       <TimelineStep
-        name={texts.about.timeline.oxyl.name}
-        desc={texts.about.timeline.oxyl.desc}
-        date={texts.about.timeline.oxyl.date}
+        name={texts.about.timeline.ipeim.name}
+        desc={texts.about.timeline.ipeim.desc}
+        date={texts.about.timeline.ipeim.date}
         right
       />
 
-      {/* Etape UPC */}
+      {/* Etape ENSI */}
       <TimelineStep
-        name={texts.about.timeline.upc.name}
-        desc={texts.about.timeline.upc.desc}
-        date={texts.about.timeline.upc.date}
+        name={texts.about.timeline.ensi.name}
+        desc={texts.about.timeline.ensi.desc}
+        date={texts.about.timeline.ensi.date}
+      />
+      <TimelineStep
+        name={texts.about.timeline.codeAndCraft.name}
+        desc={texts.about.timeline.codeAndCraft.desc}
+        date={texts.about.timeline.codeAndCraft.date}
+        right
       />
 
-      {/* Etape Sopra */}
+      {/* Etape Enova Robotics */}
       <TimelineStep
-        name={texts.about.timeline.sopra.name}
-        desc={texts.about.timeline.sopra.desc}
-        date={texts.about.timeline.sopra.date}
+        name={texts.about.timeline.enova.name}
+        desc={texts.about.timeline.enova.desc}
+        date={texts.about.timeline.enova.date}
         right
         isLast
       />

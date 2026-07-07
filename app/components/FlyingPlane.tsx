@@ -67,10 +67,10 @@ const FALLBACK_FLIGHTS: FlightData[] = [
 
 /** Available plane SVG files */
 const PLANE_SVGS = [
-  "/img/planes/boeing737.svg",
-  "/img/planes/a380.svg",
-  "/img/planes/atr72.svg",
-  "/img/planes/regional.svg",
+  "/img/planes/plane3__.svg",
+  "/img/planes/plane.svg",
+  "/img/planes/plane2.svg",
+  "/img/planes/plane3__.svg",
 ];
 
 function isEastbound(heading: number | null): boolean {
@@ -108,7 +108,6 @@ function FlyingPlane() {
 
         const data = await res.json();
         if (!data.states || data.states.length === 0) throw new Error("empty");
-
         const parsed: FlightData[] = data.states
           .filter((s: unknown[]) => s[1] && String(s[1]).trim() !== "")
           .map((s: unknown[]) => ({
@@ -124,15 +123,15 @@ function FlyingPlane() {
         const west = parsed.filter((f) => !isEastbound(f.heading));
 
         const selected: FlightData[] = [];
-        const pick = (arr: FlightData[], n: number) => {
+        const pick = (arr: FlightData[], n: number,max: number) => {
           const step = Math.max(1, Math.floor(arr.length / n));
-          for (let i = 0; i < arr.length && selected.length < 5; i += step)
+          for (let i = 0; i < arr.length && selected.length < max; i += step)
             selected.push(arr[i]);
         };
-        pick(east, 3);
-        pick(west, 2);
+        pick(east, 6,10);
+        pick(west, 4,10 );
 
-        setFlights(selected.slice(0, 5));
+        setFlights(selected.slice(0, 10));
       } catch {
         // Keep fallback data (already set as initial state)
         // Planes are already visible from the initial render

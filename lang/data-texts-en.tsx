@@ -1,4 +1,3 @@
-
 /**
  * Contains all English texts
  */
@@ -24,28 +23,33 @@ const textsEn = {
   },
   about: {
     altPicture: "Profile picture",
-    desc: "Hi, I’m a young software engineer, graduated from Ensimag. I enjoy working on various projects to explore different technical environments and solve all kinds of problems.",
+    desc: "Hi, I'm a second-year Computer Science Engineering student at ENSI Manouba, passionate about aeronautics, autonomous systems, and agentic AI. I enjoy building projects that combine robotics, drones, and AI to solve real problems.",
     seeCV: "Click to view my CV",
     timeline: {
-      ensimag: {
-        name: "Ensimag",
-        desc: "Information Systems Engineering specialization",
-        date: "2022 - 2025",
+      bac: {
+        name: "Baccalaureate — Mathematics",
+        desc: "Scientific track, Mathematics specialization",
+        date: "2022",
       },
-      oxyl: {
-        name: "Oxyl",
-        desc: "Internship / Artificial Intelligence / DevOps / Software Development",
-        date: "2024",
+      ipeim: {
+        name: "IPEIM Monastir",
+        desc: "Preparatory Institute for Engineering Studies",
+        date: "2022 - 2024",
       },
-      upc: {
-        name: "Polytechnic University of Catalonia",
-        desc: "University exchange / Courses in English",
-        date: "2024 - 2025",
+      ensi: {
+        name: "ENSI ",
+        desc: "Computer Science Engineering",
+        date: "2024 - Present",
       },
-      sopra: {
-        name: "Sopra Steria",
-        desc: "Internship / SAP Development / Artificial Intelligence",
-        date: "2025",
+       codeAndCraft: {
+    name: "Code & Craft",
+    desc: "Internship / Full-Stack Development / AI Integration",
+    date: "2025", // adjust to actual dates
+  },
+      enova: {
+        name: "Enova Robotics",
+        desc: "Summer Internship / Multi-Robot Coordination / ROS2 / Agentic AI",
+        date: "2026",
       },
     },
   },

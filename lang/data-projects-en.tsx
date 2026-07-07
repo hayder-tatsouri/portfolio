@@ -1,28 +1,30 @@
 import wallpaperGeneratorImg from "../public/img/projects/WallpaperGenerator.png";
 import neuralNetworkFromScratchImg from "../public/img/projects/NeuralNetwork.png";
 import rayTracingImg from "../public/img/projects/RayTracing.png";
+import FirstFlightImg from "../public/img/projects/First_Flight/IMG_4891.png";
+import FirstFlightAssembly from "../public/img/projects/First_Flight/IMG_20260429_163450.jpg";
+
+
 
 const projects = [
   {
     id: 1,
-    title: "Wallpaper generator",
+    title: "First Flight",
     description:
-      "Generates an image composed of a mosaic of given images, in this case, music album covers. The covers are sorted by color and arranged in a specific order to produce the final result.",
+      "The first drone ever built by our robotics club (ARE), which I led as project manager alongside a first-year club member.",
     detailed_description:
-      "This project builds high-resolution wallpapers by assembling thousands of album covers into a color-optimized mosaic. It includes image preprocessing, dominant-color extraction, nearest-color matching, and layout generation so the final image keeps both global readability and local detail.",
-    image_path: wallpaperGeneratorImg,
+      "As Aeronautics Manager of ARE, I led this project from the ground up — component selection, frame assembly, ESC/motor wiring, flight controller setup, and radio calibration — while mentoring a first-year student through the build. Beyond the technical build, this project involved planning the workflow, troubleshooting hardware issues together, and getting the club's first-ever drone into the air. It laid the foundation for later, more advanced builds within the club.",
+    image_path: FirstFlightImg,
     images: [
-      wallpaperGeneratorImg,
-      wallpaperGeneratorImg,
-      wallpaperGeneratorImg,
-      wallpaperGeneratorImg,
-      wallpaperGeneratorImg,
-      wallpaperGeneratorImg,
+      FirstFlightImg,
+      FirstFlightAssembly,
       wallpaperGeneratorImg,
     ],
+    videoId: "YrrdYHmk5LU",
+
     link: "https://github.com/Raseraa0/Wallpaper",
     color: "#c2410c",
-    tech: ["Python", "Pillow", "NumPy", "Color Theory"],
+    tech: ["ESP32","IMU", "PID Tuning", "Team Leadership"],
     demo: "",
   },
   {

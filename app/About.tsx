@@ -13,7 +13,7 @@ import { useOnScreen } from "./hooks/useOnScreen";
 import { cn } from "@/lib/utils";
 import SocialMedia from "./components/SocialMedia";
 
-import selfieImg from "../public/img/selfie_v1.jpg";
+import selfieImg from "../public/img/selfie_.jpg";
 import githubBadge from "../public/img/social_media/github-badge.svg";
 import linkedinBadge from "../public/img/social_media/linkedin-badge.svg";
 import mailBadge from "../public/img/social_media/mail-badge.svg";
@@ -107,7 +107,7 @@ function About() {
               <SocialMedia
                 svgSrc={githubBadge}
                 num="1"
-                href="https://github.com/Raseraa0/"
+                href="https://github.com/hayder-tatsouri"
                 alt={texts.hero.social.altGit}
               />
             </div>
@@ -117,7 +117,7 @@ function About() {
               <SocialMedia
                 svgSrc={linkedinBadge}
                 num="2"
-                href="https://fr.linkedin.com/in/arthur-rasera"
+                href="https://www.linkedin.com/in/hayder-tastouri"
                 alt={texts.hero.social.altLinkedin}
               />
             </div>
