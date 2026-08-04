@@ -7,11 +7,11 @@ import neuralNetworkFromScratchImg from "../public/img/projects/NeuralNetwork.pn
 import rayTracingImg from "../public/img/projects/RayTracing.png";
 import FirstFlightImg from "../public/img/projects/First_Flight/IMG_4891.png";
 import FirstFlightAssembly from "../public/img/projects/First_Flight/IMG_20260429_163450.jpg";
-import TaskVisionDashboard from "../public/img/projects/taskvision/dashboard.jpg";
-import TaskVisionTasks from "../public/img/projects/taskvision/tasks.jpg";
-import TaskVisionCreateUser from "../public/img/projects/taskvision/createuser.jpg";
-import TaskVisionHighchart from "../public/img/projects/taskvision/highchart.jpg";
-import TaskVisionClaudeClient from "../public/img/projects/taskvision/claude_desktop_as_client.png";
+import TaskVisionDashboard from "../public/img/projects/taskVision/dashboard.jpg";
+import TaskVisionTasks from "../public/img/projects/taskVision/tasks.jpg";
+import TaskVisionCreateUser from "../public/img/projects/taskVision/createuser.jpg";
+import TaskVisionHighchart from "../public/img/projects/taskVision/highchart.jpg";
+import TaskVisionClaudeClient from "../public/img/projects/taskVision/claude_desktop_as_client.png";
 import FullSetupImg from "../public/img/projects/fpv_drone/full_steup.jpg";
 import TwoInchDroneImg from "../public/img/projects/fpv_drone/2inch_drone.jpg";
 import FpvImg from "../public/img/projects/fpv_drone/fpv_img.png";
