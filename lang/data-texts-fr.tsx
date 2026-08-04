@@ -2,8 +2,6 @@
  * Contient tous les textes en français
  */
 
-// TODO CHECK LA TRADUCTION
-
 const textsFr = {
   loading: {
     text: "Chargement...",
@@ -25,28 +23,33 @@ const textsFr = {
   },
   about: {
     altPicture: "Photo de profil",
-    desc: "Salut, je suis un jeune ingénieur logiciel diplômé de l'Ensimag. J'aime travailler sur divers projets pour explorer différents environnements techniques et résoudre toutes sortes de problèmes.",
+    desc: "Salut, je suis étudiant en deuxième année de génie informatique à l’ENSI Manouba, passionné par l’aéronautique, les systèmes autonomes et l’IA agentique. J’aime construire des projets qui combinent robotique, drones et IA pour résoudre des problèmes concrets.",
     seeCV: "Cliquez pour voir mon CV",
     timeline: {
-      ensimag: {
-        name: "Ensimag",
-        desc: "Spécialisation en ingénierie des systèmes d'information",
-        date: "2022 - 2025",
+      bac: {
+        name: "Baccalauréat - Mathématiques",
+        desc: "Filière scientifique, spécialité mathématiques",
+        date: "2022",
       },
-      oxyl: {
-        name: "Oxyl",
-        desc: "Stage / Intelligence Artificielle / DevOps / Développement logiciel",
-        date: "2024",
+      ipeim: {
+        name: "IPEIM Monastir",
+        desc: "Institut préparatoire aux études d’ingénieurs",
+        date: "2022 - 2024",
       },
-      upc: {
-        name: "Université polytechnique de Catalogne",
-        desc: "Échange universitaire / Cours en anglais",
-        date: "2024 - 2025",
+      ensi: {
+        name: "ENSI",
+        desc: "Génie informatique",
+        date: "2024 - Présent",
       },
-      sopra: {
-        name: "Sopra Steria",
-        desc: "Stage / Développement SAP / Intelligence Artificielle",
+      codeAndCraft: {
+        name: "Code & Craft",
+        desc: "Stage / Développement full-stack / Intégration IA",
         date: "2025",
+      },
+      enova: {
+        name: "Enova Robotics",
+        desc: "Stage d’été / Coordination multi-robots / ROS2 / IA agentique",
+        date: "2026",
       },
     },
   },

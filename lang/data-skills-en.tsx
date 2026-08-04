@@ -2,52 +2,82 @@
  * Contient toutes les informations relatives au skills.
  */
 
-import dockerImg from "../public/img/skills/docker.svg";
-import gitImg from "../public/img/skills/git.svg";
-import odataImg from "../public/img/skills/odata.svg";
-import sapImg from "../public/img/skills/sap.svg";
-import csharpImg from "../public/img/skills/csharp.svg";
 import cppImg from "../public/img/skills/cpp.svg";
-import javaImg from "../public/img/skills/java.svg";
 import cImg from "../public/img/skills/c.svg";
-import reactImg from "../public/img/skills/react.svg";
-import nodeImg from "../public/img/skills/node.svg";
-import typescriptImg from "../public/img/skills/typescript.svg";
-import pytorchImg from "../public/img/skills/pytorch.svg";
-import tensorflowImg from "../public/img/skills/tensorflow.svg";
 import pythonImg from "../public/img/skills/python.svg";
+import javascriptImg from "../public/img/skills/javascript.svg";
 
-//TODO check la traduction
+import ros2Img from "../public/img/skills/ros2.svg";
+import gazeboImg from "../public/img/skills/gazebo.svg";
+import mavlinkImg from "../public/img/skills/mavlink.png";
+import ardupilotImg from "../public/img/skills/ardupilot.svg";
+
+import mcpImg from "../public/img/skills/mcp.webp";
+import langgraphImg from "../public/img/skills/langgraph.svg";
+import langchainImg from "../public/img/skills/langchain.svg";
+
+import angularImg from "../public/img/skills/angular.svg";
+import reactImg from "../public/img/skills/react.svg";
+
+import nodeImg from "../public/img/skills/node.svg";
+
+import codeforcesImg from "../public/img/skills/codeforces.svg";
+import leetcodeImg from "../public/img/skills/leetcode.svg";
+
+import gitImg from "../public/img/skills/git.svg";
+import vscodeImg from "../public/img/skills/vscode.svg";
 
 const skills = [
   {
     id: 1,
-    title: "Artificial Intelligence",
+    title: "Robotics",
     subSkills: [
       {
-        name: "Python",
-        image: pythonImg,
+        name: "ROS 2",
+        image: ros2Img,
       },
       {
-        name: "TensorFlow",
-        image: tensorflowImg,
+        name: "Gazebo",
+        image: gazeboImg,
       },
       {
-        name: "PyTorch",
-        image: pytorchImg,
+        name: "MAVLink",
+        image: mavlinkImg,
+      },
+      {
+        name: "ArduPilot",
+        image: ardupilotImg,
       },
     ],
   },
   {
     id: 2,
-    title: "Web development",
+    title: "AI Agents",
     subSkills: [
       {
-        name: "TypeScript",
-        image: typescriptImg,
+        name: "MCP",
+        image: mcpImg,
       },
       {
-        name: "Node.Js",
+        name: "LangGraph",
+        image: langgraphImg,
+      },
+      {
+        name: "LangChain",
+        image: langchainImg,
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Web Development",
+    subSkills: [
+      {
+        name: "Angular",
+        image: angularImg,
+      },
+      {
+        name: "Node.js",
         image: nodeImg,
       },
       {
@@ -57,65 +87,50 @@ const skills = [
     ],
   },
   {
-    id: 5,
-    title: "Low-level development",
-    subSkills: [
-      {
-        name: "C",
-        image: cImg,
-      },
-    ],
-  },
-  {
     id: 4,
-    title: "Object-Oriented",
+    title: "Programming",
     subSkills: [
-      {
-        name: "Java",
-        image: javaImg,
-      },
       {
         name: "C++",
         image: cppImg,
       },
       {
-        name: "C#",
-        image: csharpImg,
+        name: "Python",
+        image: pythonImg,
+      },
+      {
+        name: "JavaScript",
+        image: javascriptImg,
       },
     ],
   },
   {
-    id: 3,
-    title: "SAP Development",
-    subSkills: [
-      {
-        name: "ABAP",
-        image: sapImg,
-      },
-      {
-        name: "OData",
-        image: odataImg,
-      },
-      {
-        name: "SAP Fiori",
-        image: sapImg,
-      },
-    ],
-  },
-  {
-    id: 6,
-    title: "DevOps & Tools",
+    id: 5,
+    title: "Tools",
     subSkills: [
       {
         name: "Git",
         image: gitImg,
       },
       {
-        name: "Docker",
-        image: dockerImg,
+        name: "VS Code",
+        image: vscodeImg,
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "Problem Solving",
+    subSkills: [
+      {
+        name: "Codeforces",
+        image: codeforcesImg,
+      },
+      {
+        name: "LeetCode",
+        image: leetcodeImg,
       },
     ],
   },
 ];
-
 export default skills;

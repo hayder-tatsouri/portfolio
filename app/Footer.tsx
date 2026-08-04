@@ -72,13 +72,13 @@ function Footer() {
           {/* Media Github */}
           <FooterMedia
             name={texts.footer.git}
-            href="https://github.com/Raseraa0/"
+            href="https://github.com/hayder-tatsouri"
           />
 
           {/* Media Linkedin */}
           <FooterMedia
             name={texts.footer.linkedin}
-            href="https://fr.linkedin.com/in/arthur-rasera"
+            href="https://www.linkedin.com/in/hayder-tastouri/"
           />
 
           {/* Media Mail */}

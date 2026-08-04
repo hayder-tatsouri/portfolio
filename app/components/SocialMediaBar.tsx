@@ -120,7 +120,7 @@ export default function SocialMediaBar({ speed }: Props) {
           <SocialMedia
             svgSrc={githubBadge}
             num="1"
-            href="https://github.com/Raseraa0/"
+            href="https://github.com/hayder-tatsouri"
             alt={texts.hero.social.altGit}
           />
 
@@ -128,7 +128,7 @@ export default function SocialMediaBar({ speed }: Props) {
           <SocialMedia
             svgSrc={linkedinBadge}
             num="2"
-            href="https://fr.linkedin.com/in/arthur-rasera"
+            href="https://www.linkedin.com/in/hayder-tastouri/"
             alt={texts.hero.social.altLinkedin}
           />
 

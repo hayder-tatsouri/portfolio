@@ -22,6 +22,12 @@ function Projects() {
     useOnScreen<HTMLDivElement>();
   const [project6Ref, project6Visible] =
     useOnScreen<HTMLDivElement>();
+  const [project7Ref, project7Visible] =
+    useOnScreen<HTMLDivElement>();
+  const [project8Ref, project8Visible] =
+    useOnScreen<HTMLDivElement>();
+  const [project9Ref, project9Visible] =
+    useOnScreen<HTMLDivElement>();
 
   const projects = [
     { id: 1, ref: project1Ref, visible: project1Visible, delay: "" },
@@ -53,6 +59,24 @@ function Projects() {
       id: 6,
       ref: project6Ref,
       visible: project6Visible,
+      delay: "delay-[600ms]",
+    },
+    {
+      id: 7,
+      ref: project7Ref,
+      visible: project7Visible,
+      delay: "",
+    },
+    {
+      id: 8,
+      ref: project8Ref,
+      visible: project8Visible,
+      delay: "delay-300",
+    },
+    {
+      id: 9,
+      ref: project9Ref,
+      visible: project9Visible,
       delay: "delay-[600ms]",
     },
   ];

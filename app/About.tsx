@@ -85,7 +85,7 @@ function About() {
           </div>
 
           {/* Bouton qui fait télécharger le CV */}
-          <Link href="/CV_RASERA_Arthur_FR.pdf" target="_blank">
+          <Link href="/HAYDER_TASTOURI_CV.pdf" target="_blank">
             <Button
               ref={cvRef}
               text={texts.about.seeCV}
@@ -117,7 +117,7 @@ function About() {
               <SocialMedia
                 svgSrc={linkedinBadge}
                 num="2"
-                href="https://www.linkedin.com/in/hayder-tastouri"
+                href="https://www.linkedin.com/in/hayder-tastouri/"
                 alt={texts.hero.social.altLinkedin}
               />
             </div>

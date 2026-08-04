@@ -29,11 +29,11 @@ const metadataInfos: Metadata = {
     title: "Arthur Rasera Portfolio | Software Developer",
     description:
       "Discover the portfolio of Arthur Rasera: web apps with Next.js, AI projects using Python, low-level and SAP development, and DevOps tools.",
-    url: "https://raseraa0.github.io",
+    url: "https://hayder-tatsouri.github.io/portfolio/",
     siteName: "Arthur Rasera Portfolio",
     images: [
       {
-        url: "https://raseraa0.github.io/preview.png", // Replace with your real image URL
+        url: "https://hayder-tatsouri.github.io/portfolio/preview.png", // Replace with your real image URL
         width: 1856,
         height: 928,
         alt: "Preview of Arthur Rasera's developer portfolio",
@@ -45,7 +45,7 @@ const metadataInfos: Metadata = {
   icons: {
     icon: "/img/favicon.png",
   },
-  metadataBase: new URL("https://raseraa0.github.io"),
+  metadataBase: new URL("https://hayder-tatsouri.github.io/portfolio/"),
 };
 
 export default metadataInfos;

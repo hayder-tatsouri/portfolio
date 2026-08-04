@@ -5,31 +5,75 @@
 import wallpaperGeneratorImg from "../public/img/projects/WallpaperGenerator.png";
 import neuralNetworkFromScratchImg from "../public/img/projects/NeuralNetwork.png";
 import rayTracingImg from "../public/img/projects/RayTracing.png";
+import FirstFlightImg from "../public/img/projects/First_Flight/IMG_4891.png";
+import FirstFlightAssembly from "../public/img/projects/First_Flight/IMG_20260429_163450.jpg";
+import TaskVisionDashboard from "../public/img/projects/taskvision/dashboard.jpg";
+import TaskVisionTasks from "../public/img/projects/taskvision/tasks.jpg";
+import TaskVisionCreateUser from "../public/img/projects/taskvision/createuser.jpg";
+import TaskVisionHighchart from "../public/img/projects/taskvision/highchart.jpg";
+import TaskVisionClaudeClient from "../public/img/projects/taskvision/claude_desktop_as_client.png";
+import FullSetupImg from "../public/img/projects/fpv_drone/full_steup.jpg";
+import TwoInchDroneImg from "../public/img/projects/fpv_drone/2inch_drone.jpg";
+import FpvImg from "../public/img/projects/fpv_drone/fpv_img.png";
+import FpvImgFlying from "../public/img/projects/fpv_drone/fpv_img_flying.png";
+import ProdTrackSystemImg from "../public/img/projects/prodTrack/better_img_for_system.png";
+import ProdTrackDashboardImg from "../public/img/projects/prodTrack/dashboard.png";
+import ProdTrackTaskImg from "../public/img/projects/prodTrack/task_assignment.png";
+import ProdTrackTeamImg from "../public/img/projects/prodTrack/team_image.jpg";
+import ProdTrackTrackingImg from "../public/img/projects/prodTrack/tracking_board.png";
+import RoboFleetMapImg from "../public/img/projects/robo_fleet/map.jpeg";
+import ARECertifImg from "../public/img/projects/ARE/are_certif.png";
+import RoboCupImg from "../public/img/projects/ARE/robocup.jpg";
 
-//TODO check la traduction
+import LaunchImg from "../public/img/projects/ARE/launch__day.jpg";
+import RoboDayImg from "../public/img/projects/ARE/roboday_full_teams.jpg";
+import AeroWorkshopImg from "../public/img/projects/aero/aero_workshop.jpg";
+import AeroWorkshop1Img from "../public/img/projects/aero/aero_workshop1.jpg";
+import AerodynamiqueImg from "../public/img/projects/aero/aerodynamique.png";
+import PlaneFoamImg from "../public/img/projects/aero/plane_foam.jpg";
+import PlanesModelsImg from "../public/img/projects/aero/planes_models.png";
+import RCPlaneImg from "../public/img/projects/aero/rc_plane.jpg";
+import LineFollowerImg from "../public/img/projects/Maze&Line_Follower/line_follower.jpg";
+import LineFollowerPCBImg from "../public/img/projects/Maze&Line_Follower/line_follower_pcb.jpg";
+import MazeImg from "../public/img/projects/Maze&Line_Follower/maze.jpg";
+import MazeRobotImg from "../public/img/projects/Maze&Line_Follower/maze_robot.png";
 
 const projects = [
   {
     id: 1,
-    title: "Générateur de fond d’écran",
+    title: "Premier vol",
     description:
-      "Génère une image composée d’une mosaïque d’images données, ici des pochettes d’albums de musique. Les pochettes sont triées par couleur et arrangées dans un ordre spécifique pour produire le résultat final.",
+      "Le tout premier drone construit par notre club de robotique (ARE), que j’ai dirigé en tant que chef de projet avec un membre de première année.",
     detailed_description:
-      "Ce projet génère des fonds d’écran haute résolution en assemblant des milliers de pochettes d’albums selon une logique de tri colorimétrique. Il intègre du prétraitement d’images, l’extraction de couleurs dominantes et un placement optimisé pour conserver à la fois lisibilité globale et détails locaux.",
-    image_path: wallpaperGeneratorImg,
+      "En tant que responsable aéronautique d’ARE, j’ai mené ce projet de bout en bout: choix des composants, assemblage du châssis, câblage ESC/moteurs, configuration du contrôleur de vol et calibration radio, tout en accompagnant un étudiant de première année pendant la construction. Au-delà de l’aspect technique, ce projet a impliqué la planification du travail, la résolution collective de pannes matérielles et la mise en vol du tout premier drone du club. Il a servi de base aux projets plus avancés lancés ensuite.",
+    image_path: FirstFlightImg,
+    images: [
+      FirstFlightImg,
+      FirstFlightAssembly,
+      wallpaperGeneratorImg,
+    ],
+    videoId: "YrrdYHmk5LU",
+
     link: "https://github.com/Raseraa0/Wallpaper",
     color: "#c2410c",
-    tech: ["Python", "Pillow", "NumPy", "Color Theory"],
+    tech: ["ESP32", "IMU", "Réglage PID", "Leadership d'équipe"],
     demo: "",
   },
   {
     id: 2,
     title: "Réseau de neurones depuis zéro",
     description:
-      "Implémentation d’un réseau de neurones sans utiliser de bibliothèques d’IA existantes. Le but est de suivre les mêmes principes que Keras avec TensorFlow en Python, à l’aide de différentes couches facilement manipulables.",
+      "Implémentation d’un réseau de neurones sans utiliser de bibliothèques d’IA existantes. L’objectif est de suivre les mêmes principes que Keras avec TensorFlow en Python, à l’aide de différentes couches facilement manipulables.",
     detailed_description:
-      "Implémentation complète d’un réseau de neurones dense avec propagation avant, rétropropagation et boucle d’entraînement paramétrable. L’objectif principal était de comprendre en profondeur les gradients, l’optimisation et la structure interne des modèles avant d’utiliser des frameworks haut niveau.",
+      "Implémentation éducative complète de réseaux feed-forward et de rétropropagation, avec couches personnalisables, fonctions d’activation et boucles d’entraînement. L’objectif était de comprendre les mécanismes internes de l’optimisation, la circulation des gradients et le comportement d’un modèle avant d’utiliser des frameworks de plus haut niveau.",
     image_path: neuralNetworkFromScratchImg,
+    images: [
+      neuralNetworkFromScratchImg,
+      neuralNetworkFromScratchImg,
+      neuralNetworkFromScratchImg,
+      neuralNetworkFromScratchImg,
+      neuralNetworkFromScratchImg,
+    ],
     link: "https://github.com/Raseraa0/NeuralNetworkFromScratch",
     color: "#0f766e",
     tech: ["Python", "NumPy", "Matplotlib", "Deep Learning"],
@@ -37,54 +81,129 @@ const projects = [
   },
   {
     id: 3,
-    title: "Ray tracing",
+    title: "Drone FPV 2 pouces",
     description:
-      "Développement d’un système de ray tracing. L’objectif est de simuler des objets et une caméra dans un espace 3D, puis de reconstruire de manière réaliste ce que la caméra percevrait en ajustant textures, couleurs ou motifs.",
+      "Un petit drone FPV de 2 pouces, construit et réglé pour le vol freestyle — format compact, excellent rapport poids/puissance et installation first-person-view complète.",
     detailed_description:
-      "Ce moteur explore un rendu inspiré de la physique via intersections rayon-objet, réflexions récursives et paramètres de matériaux. Le travail porte sur la représentation de scène, la projection caméra et les compromis entre qualité visuelle et performance.",
-    image_path: rayTracingImg,
-    link: "https://github.com/Raseraa0/RayTracing",
-    color: "#6d28d9",
-    tech: ["C++", "Linear Algebra", "3D Graphics", "Shading"],
+      "Un drone FPV 2 pouces sur mesure axé sur la compacité et les performances de vol agressives. Le projet a couvert la sélection des composants, l’assemblage du châssis, le soudage, la configuration du contrôleur de vol et le réglage fin pour un comportement de vol stable et nerveux, le tout dans un format minuscule avec une caméra FPV et un émetteur vidéo complets.",
+    image_path: FullSetupImg,
+    images: [
+      FullSetupImg,
+      TwoInchDroneImg,
+      FpvImg,
+      FpvImgFlying,
+    ],
+    link: "",
+    color: "#dc2626",
+    tech: ["FPV", "Betaflight", "Quadricoptère", "Soudure"],
     demo: "",
   },
   {
     id: 4,
-    title: "Générateur de fond d’écran : édition néon",
+    title: "ProdTrack",
     description:
-      "Version alternative du générateur de fond d’écran, orientée vers des palettes à fort contraste et des transitions de couleurs plus marquées, tout en gardant le même pipeline de mosaïque.",
+      "Système de supervision industrielle complet, conçu pour les ateliers textiles. Il connecte le terrain (machines, opérateurs) à la direction (managers, rapports) en passant par une couche intelligente de Machine Learning et d’IA générative.",
     detailed_description:
-      "Branche expérimentale du générateur de mosaïque avec accent sur une esthétique néon. Plusieurs stratégies de quantification et d’ordonnancement des couleurs sont comparées pour obtenir un rendu plus percutant sans perdre la structure des images sources.",
-    image_path: wallpaperGeneratorImg,
-    link: "https://github.com/Raseraa0/Wallpaper",
-    color: "#0891b2",
-    tech: ["Python", "Pillow", "Color Quantization"],
+      "ProdTrack est une plateforme de fabrication intelligente conçue pour aider les managers à surveiller l’activité de l’atelier, optimiser la productivité et prendre des décisions basées sur les données. Le système réunit quatre composants clés en un seul flux de travail : le matériel IoT, avec des appareils à base d’ESP32 équipés de lecteurs RFID, d’écrans OLED et de buzzers installés sur chaque machine pour identifier les opérateurs et collecter des données en temps réel ; un backend FastAPI qui gère la logique métier, les API et la communication entre tous les composants du système ; des analyses propulsées par l’IA, notamment la détection d’anomalies, la prévision de production et un assistant intelligent qui aide les managers à comprendre les données et à prendre de meilleures décisions ; et un dashboard moderne en Next.js offrant une vue en temps réel des machines, opérateurs, indicateurs de production et rapports générés. C’était un projet d’équipe collaboratif. Mes principales contributions ont été la conception de l’agent IA, la mise en œuvre de la génération automatique de rapports et le développement du système d’optimisation des tâches. Un immense merci à mes coéquipiers Sirine Zaibi, Ahmed Naoui et Helmi Soudana, grâce à qui ce projet a été possible.",
+    image_path: ProdTrackSystemImg,
+    images: [
+      ProdTrackSystemImg,
+      ProdTrackDashboardImg,
+      ProdTrackTrackingImg,
+      ProdTrackTaskImg,
+      ProdTrackTeamImg,
+    ],
+    link: "https://github.com/Helmisoudana/ProdTrack-System/",
+    color: "#059669",
+    tech: ["ESP32", "RFID", "FastAPI", "Machine Learning", "Next.js", "IoT"],
     demo: "",
   },
   {
     id: 5,
-    title: "Réseau de neurones depuis zéro : mini-batch",
+    title: "Robots Solveur de Labyrinthe & Suiveur de Ligne",
     description:
-      "Variante de la même architecture de réseau de neurones avec des expérimentations autour de l’entraînement mini-batch, de la normalisation et de la visualisation de la convergence.",
+      "Robots autonomes Suiveur de Ligne et Solveur de Labyrinthe, conçus, construits et programmés from scratch pour des compétitions nationales de robotique.",
     detailed_description:
-      "Version orientée recherche sur les effets du mini-batch, de la normalisation et des hyperparamètres d’entraînement. Elle ajoute des outils d’analyse de convergence et des comparaisons de stabilité pour mieux interpréter le comportement du modèle.",
-    image_path: neuralNetworkFromScratchImg,
-    link: "https://github.com/Raseraa0/NeuralNetworkFromScratch",
-    color: "#b45309",
-    tech: ["Python", "NumPy", "Mini-batch SGD", "Visualization"],
+      "Dans le cadre du club de robotique, j'ai conçu, construit et programmé des robots autonomes Suiveur de Ligne et Solveur de Labyrinthe pour des compétitions nationales de robotique. Les robots ont été développés de zéro, incluant l'assemblage mécanique, l'intégration électronique, l'étalonnage des capteurs et le développement du logiciel embarqué. Le robot Suiveur de Ligne utilisait des capteurs infrarouges et des algorithmes de contrôle pour suivre avec précision des pistes à haute vitesse, tandis que le Solveur de Labyrinthe combinait des capteurs de distance avec une logique de planification de chemin pour explorer, cartographier et résoudre de manière autonome des labyrinthes inconnus dans le trajet le plus court possible. Ces projets ont renforcé mes compétences en systèmes embarqués, programmation de microcontrôleurs, fusion de capteurs, contrôle moteur, réglage PID, conception d'algorithmes et intégration de systèmes robotiques.",
+    image_path: LineFollowerImg,
+    images: [
+      LineFollowerImg,
+      LineFollowerPCBImg,
+      MazeImg,
+      MazeRobotImg,
+    ],
+    link: "",
+    color: "#dc2626",
+    tech: ["Arduino", "ESP32", "Capteurs IR", "Capteurs Ultrasoniques", "Moteurs DC", "Contrôle PID", "C/C++", "Systèmes embarqués"],
     demo: "",
   },
   {
     id: 6,
-    title: "Ray tracing : étude des matériaux",
+    title: "TaskVision",
     description:
-      "Autre branche de ray tracing dédiée à l’étude des matériaux, au réglage des réflexions et aux motifs procéduraux pour comparer le réalisme du rendu selon les scènes.",
+      "Application de gestion de projet full-stack avec un frontend Angular + Tailwind, un backend Node.js/Express + Sequelize/MySQL et une orchestration Docker.",
     detailed_description:
-      "Cette branche se concentre sur la qualité des matériaux: réglage de la réflectivité, rugosité et textures procédurales. Le but est de mesurer l’impact visuel de chaque paramètre dans des scènes comparables et d’identifier les réglages les plus convaincants.",
-    image_path: rayTracingImg,
-    link: "https://github.com/Raseraa0/RayTracing",
-    color: "#be123c",
-    tech: ["C++", "Materials", "Procedural Textures", "PBR"],
+      "TaskVision est une application complète de gestion de projet. Le frontend est construit avec Angular et Tailwind, tandis que le backend repose sur Node.js/Express avec Sequelize et MySQL. Elle comprend l’authentification JWT avec hachage des mots de passe via bcrypt, du CRUD complet pour les projets, tâches et commentaires, un service de notification par email (Nodemailer/SendGrid/Resend), une documentation API Swagger et un serveur MCP exposant des outils de connexion, de projets et d’utilisateurs via stdio. L’ensemble est orchestré avec Docker Compose.",
+    image_path: TaskVisionDashboard,
+    images: [
+      TaskVisionDashboard,
+      TaskVisionTasks,
+      TaskVisionCreateUser,
+      TaskVisionHighchart,
+      TaskVisionClaudeClient,
+    ],
+    link: "",
+    color: "#4f46e5",
+    tech: ["Angular", "Tailwind", "Node.js", "Express", "MySQL", "Sequelize", "Docker", "JWT"],
+    demo: "",
+  },
+  {
+    id: 7,
+    title: "RoboFleet",
+    description:
+      "Navigation outdoor multi-robots et coordination de flotte pilotée par IA — une plateforme de simulation et de contrôle pour une flotte de robots de sécurité autonomes.",
+    detailed_description:
+      "Pendant mon stage chez Enova Robotics, j'ai construit une plateforme de simulation et de contrôle pour une flotte de robots de sécurité autonomes. Plutôt que de tester dans un monde vide générique, j'ai recréé Novation City / Technopôle de Sousse — le site réel d'Enova — en extrayant les données réelles des bâtiments et routes d'OpenStreetMap pour que les robots patrouillent un jumeau numérique fidèle du terrain qu'ils sont censés garder. Le projet s'est articulé autour de trois axes principaux : la navigation autonome avec un stack Nav2 complet utilisant Regulated Pure Pursuit et des costmaps multicouches avec évitement d'obstacles LiDAR ; une architecture multi-robots où plusieurs robots opèrent simultanément dans le même monde, chacun avec son propre stack de navigation indépendant ; et une couche multi-agents — un serveur MCP exposant des outils d'allocation de tâches, de prédiction de collisions et de commandes en langage naturel à un LLM (Claude), permettant de coordonner et surveiller la flotte via un agent IA et un dashboard en direct.",
+    image_path: RoboFleetMapImg,
+    images: [RoboFleetMapImg],
+    link: "",
+    color: "#7c3aed",
+    tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Claude API"],
+    demo: "",
+  },
+  {
+    id: 8,
+    title: "Association Robotique ENSI",
+    description:
+      "En tant que membre du bureau étendu de l’Association Robotique de l’ENSI, j’ai contribué à l’organisation et au soutien d’événements techniques qui promeuvent la robotique et l’innovation au sein de l’université et à travers la Tunisie.",
+    detailed_description:
+      "En tant que membre du bureau étendu de l’Association Robotique de l’ENSI, j’ai contribué à l’organisation et au soutien d’événements techniques qui promeuvent la robotique et l’innovation au sein de l’université et à travers la Tunisie. Les contributions clé incluent : l’organisation et la coordination du RoboCup 8.0, l’un des plus grands événements de robotique en Tunisie, réunissant étudiants, chercheurs et professionnels de l’industrie ; la contribution à la planification et à l’exécution d’ateliers, compétitions et événements communautaires ; le rôle de formateur lors du RoboDay, en encadrant des étudiants de première année pendant la conception, l’assemblage et la programmation de leurs premiers robots suivants de ligne ; et l’introduction de nouveaux membres aux fondamentaux de la robotique, aux systèmes embarqués, aux capteurs, au contrôle moteur et au travail d’équipe via des sessions pratiques.",
+    image_path: RoboDayImg,
+    images: [ARECertifImg, RoboCupImg, RoboDayImg, LaunchImg],
+    link: "",
+    color: "#b91c1c",
+    tech: ["Robotique", "Organisation d'événements", "Mentorat", "Systèmes embarqués"],
+    demo: "",
+  },
+  {
+    id: 9,
+    title: "Division Aéronautique ARE",
+    description:
+      "En tant que responsable aéronautique de l'ARE (Association de Robotique de l'ENSI), j'ai dirigé la division aéronautique, organisé des ateliers techniques et coordonné des projets étudiants autour d'avions RC et de planeurs.",
+    detailed_description:
+      "En tant que responsable aéronautique de l'ARE (Association de Robotique de l'ENSI), j'étais en charge de diriger la division aéronautique, d'organiser des ateliers techniques et de coordonner des projets étudiants. J'ai animé des sessions pratiques où les participants ont conçu et construit des avions RC et des planeurs, en les initiant aux fondamentaux de l'aérodynamique et de la conception aéronautique. En complément de la formation technique, j'ai géré la planification des projets, délégué les tâches au sein de l'équipe et assuré une collaboration efficace pour mener à bien nos initiatives aéronautiques.",
+    image_path: RCPlaneImg,
+    images: [
+      RCPlaneImg,
+      AeroWorkshopImg,
+      AeroWorkshop1Img,
+      AerodynamiqueImg,
+      PlaneFoamImg,
+      PlanesModelsImg,
+    ],
+    link: "",
+    color: "#0369a1",
+    tech: ["Aérodynamique", "Aéronefs RC", "Atelier", "Leadership d'équipe"],
     demo: "",
   },
 ];

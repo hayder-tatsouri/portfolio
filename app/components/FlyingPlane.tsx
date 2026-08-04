@@ -68,8 +68,7 @@ const FALLBACK_FLIGHTS: FlightData[] = [
 /** Available plane SVG files */
 const PLANE_SVGS = [
   "/img/planes/plane3__.svg",
-  "/img/planes/plane.svg",
-  "/img/planes/plane2.svg",
+  
   "/img/planes/plane3__.svg",
 ];
 
