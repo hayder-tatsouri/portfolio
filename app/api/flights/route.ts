@@ -20,7 +20,10 @@ async function getAccessToken(): Promise<string | null> {
   const clientId = process.env.OPENSKY_CLIENT_ID;
   const clientSecret = process.env.OPENSKY_CLIENT_SECRET;
 
-  if (!clientId || !clientSecret) return null;
+  if (!clientId || !clientSecret) {
+    console.error("[OpenSky] Missing OPENSKY_CLIENT_ID/SECRET env vars - using anonymous access");
+    return null;
+  }
 
   if (cachedToken && Date.now() < tokenExpiresAt - 30_000) {
     return cachedToken;
@@ -34,6 +37,7 @@ async function getAccessToken(): Promise<string | null> {
       client_id: clientId,
       client_secret: clientSecret,
     }),
+    signal: AbortSignal.timeout(8000),
   });
 
   if (!res.ok) {
@@ -63,6 +67,7 @@ export async function GET(request: NextRequest) {
 
     const res = await fetch(openSkyUrl, {
       headers,
+      signal: AbortSignal.timeout(8000),
       next: { revalidate: 30 },
     });
 
@@ -84,9 +89,16 @@ export async function GET(request: NextRequest) {
 
     const data = await res.json();
     return NextResponse.json(data);
-  } catch {
+  } catch (e) {
+    const cause =
+      e instanceof Error && e.name === "TimeoutError"
+        ? "OpenSky request timed out (8s)"
+        : e instanceof Error
+          ? `${e.name}: ${e.message}`
+          : "unknown error";
+    console.error("[OpenSky] Failed to fetch flights:", cause);
     return NextResponse.json(
-      { error: "Failed to fetch flights" },
+      { error: "Failed to fetch flights", cause },
       { status: 500 }
     );
   }
