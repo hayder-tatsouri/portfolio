@@ -31,7 +31,10 @@ export default function Home() {
   // Référence de l'objet parallax
   const parallaxRef = useRef<IParallax>(null);
 
-  // Lorsque la page se charge, la variable est à false
+  // Remembers the scroll position so we can restore it when the Parallax is
+  // remounted (the library freezes pages/offsets at mount, so changing the
+  // project factor requires a remount - but we must not lose the user's place).
+  const savedScrollRef = useRef(0);  // Lorsque la page se charge, la variable est à false
   useEffect(() => {
     setLoading(false);
   }, []);
@@ -63,6 +66,7 @@ export default function Home() {
   const handleScroll = () => {
     if (parallaxRef.current) {
       const scrollTop = parallaxRef.current.container.current.scrollTop;
+      savedScrollRef.current = scrollTop;
       const pageHeight = parallaxRef.current.space;
       setIsTop(10 * scrollTop < 9 * pageHeight);
 
@@ -77,6 +81,9 @@ export default function Home() {
     const container = parallaxRef.current?.container.current;
     if (container) {
       container.addEventListener("scroll", handleScroll);
+      // Restore the scroll position after a remount so the user doesn't get
+      // thrown back to the top when the project factor changes.
+      container.scrollTop = savedScrollRef.current;
       return () => container.removeEventListener("scroll", handleScroll);
     }
   }, [totalPages]);
