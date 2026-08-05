@@ -14,6 +14,7 @@ import { useLanguage } from "../contexts/language-context";
 type Props = {
   speed: number;
   parallaxRef: RefObject<IParallax | null>;
+  skillsOffset?: number;
 };
 
 // Propriétés de NavigationBarText
@@ -63,7 +64,7 @@ function NavigationBarText({
  * @param parallaxRef: Référence de l'élément global parallax
  *
  */
-function NavigationBar({ speed, parallaxRef }: Props) {
+function NavigationBar({ speed, parallaxRef, skillsOffset = 4 }: Props) {
   const scrollToSection = (sectionOffset: number) => {
     parallaxRef.current?.scrollTo(sectionOffset);
   };
@@ -96,7 +97,7 @@ function NavigationBar({ speed, parallaxRef }: Props) {
         {/* Navigation section Skills */}
         <NavigationBarText
           text={texts.hero.nav.skills}
-          onClick={() => scrollToSection(3)}
+          onClick={() => scrollToSection(skillsOffset)}
         ></NavigationBarText>
       </div>
     </ParallaxLayer>

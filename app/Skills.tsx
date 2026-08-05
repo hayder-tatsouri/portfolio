@@ -9,6 +9,10 @@ import CrossSkills from "./components/CrossSkills";
 import { useOnScreen } from "./hooks/useOnScreen";
 import { cn } from "@/lib/utils";
 
+type Props = {
+  offset?: number;
+};
+
 /**
  * @Skills
  * Fonction principale
@@ -16,13 +20,13 @@ import { cn } from "@/lib/utils";
  * @description Page Skills.
  *
  */
-function Skills() {
+function Skills({ offset = 4 }: Props) {
   // Référence pour l'apparition au scroll
   const [skillsRef, skillsVisible] = useOnScreen<HTMLDivElement>();
 
   return (
     <ParallaxLayer
-      offset={4}
+      offset={offset}
       speed={0}
       className="min-[600px] flex flex-col items-center bg-blue-9 dark:bg-blue-4"
     >

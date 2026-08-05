@@ -1,6 +1,4 @@
 import wallpaperGeneratorImg from "../public/img/projects/WallpaperGenerator.png";
-import neuralNetworkFromScratchImg from "../public/img/projects/NeuralNetwork.png";
-import rayTracingImg from "../public/img/projects/RayTracing.png";
 import FirstFlightImg from "../public/img/projects/First_Flight/IMG_4891.png";
 import FirstFlightAssembly from "../public/img/projects/First_Flight/IMG_20260429_163450.jpg";
 import CropEye from "../public/img/projects/CropEye/drone.png";

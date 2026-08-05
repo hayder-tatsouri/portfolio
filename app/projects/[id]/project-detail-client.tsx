@@ -144,10 +144,10 @@ function ProjectDetailClient({ id }: Props) {
           </motion.div>
         )}
 
-        <div className="grid gap-10 lg:grid-cols-[1fr_380px]">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1fr_380px]">
           {/* Left - gallery */}
           <motion.div
-            className="flex flex-col gap-4"
+            className="flex min-w-0 flex-col gap-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
@@ -253,7 +253,7 @@ function ProjectDetailClient({ id }: Props) {
 
           {/* Right - info */}
           <motion.div
-            className="flex flex-col gap-6"
+            className="flex min-w-0 flex-col gap-6"
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.35 }}

@@ -39,6 +39,10 @@ const FooterMedia = ({ name, href }: Props) => {
   );
 };
 
+type FooterProps = {
+  offset?: number;
+};
+
 /**
  * @Footer
  * Fonction principale
@@ -46,14 +50,14 @@ const FooterMedia = ({ name, href }: Props) => {
  * @description Footer qui contient mon nom et mes réseaux sociaux.
  *
  */
-function Footer() {
+function Footer({ offset = 5 }: FooterProps) {
 
   // Récupération du textes
   const { texts } = useLanguage();
 
   return (
     <ParallaxLayer
-      offset={5}
+      offset={offset}
       speed={0}
       className="min-[600px] pointer-events-none relative"
     >

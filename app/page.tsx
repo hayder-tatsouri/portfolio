@@ -5,7 +5,7 @@
 
 "use client";
 import { IParallax, Parallax } from "@react-spring/parallax";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Hero from "./Hero";
 import CountryFlag from "./components/CountryFlag";
 import LoadingScreen from "./components/LoadingScreen";
@@ -42,6 +42,20 @@ export default function Home() {
   // Show planes only on the hero (first page)
   const [showPlanes, setShowPlanes] = useState(true);
 
+  // Projects content is taller than 1 page on mobile, so we measure it and
+  // dynamically adjust the number of parallax pages + offsets of following sections.
+  const [projectsFactor, setProjectsFactor] = useState(2);
+
+  const onProjectsFactorChange = useCallback((factor: number) => {
+    setProjectsFactor(factor);
+  }, []);
+
+  // Skills & Footer share the same offset: footer anchored to the bottom of
+  // the skills page, so there is no empty gap between them.
+  const skillsOffset = 2 + projectsFactor;
+  const footerOffset = skillsOffset;
+  const totalPages = footerOffset + 1;
+
   /**
    * Lorsque l'on scroll, on vérifié si on est au top pour afficher
    * ou pas le bouton go to top
@@ -52,20 +66,20 @@ export default function Home() {
       const pageHeight = parallaxRef.current.space;
       setIsTop(10 * scrollTop < 9 * pageHeight);
 
-      // Hide planes after scrolling past ~80% of first page
-      const onePageHeight = pageHeight / 6;
-      setShowPlanes(scrollTop < onePageHeight * 0.8);
+      // Hide planes after scrolling past ~80% of the first page
+      setShowPlanes(scrollTop < pageHeight * 0.8);
     }
   };
 
-  // Déclenché uniquement au début
+  // Déclenché au début et à chaque changement de page (le Parallax est remonté
+  // quand le nombre de pages change, il faut re-attacher l'écouteur de scroll)
   useEffect(() => {
     const container = parallaxRef.current?.container.current;
     if (container) {
       container.addEventListener("scroll", handleScroll);
       return () => container.removeEventListener("scroll", handleScroll);
     }
-  }, []);
+  }, [totalPages]);
 
   return (
     <main>
@@ -89,28 +103,26 @@ export default function Home() {
       />
       {/* Conteneur parallax qui contiendra chaques pages*/}
       <Parallax
+        key={totalPages}
         ref={parallaxRef}
-        pages={6}
+        pages={totalPages}
         style={{ top: "0", left: "0" }}
         className="p-animation bg-blue-9"
       >
         {/* Hero pour la page d'acceuil */}
-        <Hero parallaxRef={parallaxRef} />
+        <Hero parallaxRef={parallaxRef} skillsOffset={skillsOffset} />
 
         {/* Fond uni */}
-        <BackgroundColor color="#00131c" offset={1} />
-        <BackgroundColor color="#00131c" offset={2} />
-        <BackgroundColor color="#00131c" offset={3} />
-        <BackgroundColor color="#00131c" offset={4} />
-        <BackgroundColor color="#00131c" offset={5} />
-        <BackgroundColor color="#00131c" offset={6} />
+        {Array.from({ length: totalPages - 1 }, (_, i) => (
+          <BackgroundColor key={i} color="#00131c" offset={i + 1} />
+        ))}
 
         {/* <ElementBackground /> */}
 
         <About />
-        <Projects />
-        <Skills />
-        <Footer />
+        <Projects factor={projectsFactor} onFactorChange={onProjectsFactorChange} />
+        <Skills offset={skillsOffset} />
+        <Footer offset={footerOffset} />
       </Parallax>
     </main>
   );

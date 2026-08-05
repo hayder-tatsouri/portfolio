@@ -7,8 +7,14 @@ import { ParallaxLayer } from "@react-spring/parallax";
 import Project from "./components/Project";
 import { useOnScreen } from "./hooks/useOnScreen";
 import { cn } from "@/lib/utils";
+import { useEffect, useRef } from "react";
 
-function Projects() {
+type Props = {
+  factor: number;
+  onFactorChange: (factor: number) => void;
+};
+
+function Projects({ factor, onFactorChange }: Props) {
   // Références pour l'apparition au scroll
   const [project1Ref, project1Visible] =
     useOnScreen<HTMLDivElement>();
@@ -28,6 +34,34 @@ function Projects() {
     useOnScreen<HTMLDivElement>();
   const [project9Ref, project9Visible] =
     useOnScreen<HTMLDivElement>();
+
+  // The grid is taller than a single page on small screens, so we measure its
+  // height and report how many pages it needs to avoid overflowing into Skills.
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const grid = gridRef.current;
+    if (!grid) return;
+
+    const measure = () => {
+      const height = grid.offsetHeight;
+      const viewport = window.innerHeight || 800;
+      // Fractional factor instead of Math.ceil: gives the grid exactly the space
+      // it needs (rounded up to 2 decimals so it never overflows into Skills),
+      // removing the big empty page between the last project and Skills.
+      const factor = Math.max(1, height / viewport);
+      onFactorChange(Math.ceil(factor * 100) / 100);
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(grid);
+    window.addEventListener("resize", measure);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, [onFactorChange]);
 
   const projects = [
     { id: 1, ref: project1Ref, visible: project1Visible, delay: "" },
@@ -85,10 +119,10 @@ function Projects() {
     <ParallaxLayer
       offset={2}
       speed={0}
-      factor={2}
+      factor={factor}
       className="flex items-start justify-center bg-blue-9 dark:bg-blue-4"
     >
-      <div className="grid w-full max-w-7xl grid-cols-1 gap-8 p-8 md:grid-cols-2 lg:grid-cols-3">
+      <div ref={gridRef} className="grid w-full max-w-7xl grid-cols-1 gap-8 p-8 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project) => (
           <Project
             key={project.id}

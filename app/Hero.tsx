@@ -28,6 +28,7 @@ import { useLanguage } from "./contexts/language-context";
 // Propriétés
 type Props = {
   parallaxRef: RefObject<IParallax | null>;
+  skillsOffset?: number;
 };
 
 /**
@@ -38,7 +39,7 @@ type Props = {
  * @param parallaxRef: Référence de l'élément global parallax
  *
  */
-function Hero({ parallaxRef }: Props) {
+function Hero({ parallaxRef, skillsOffset = 4 }: Props) {
   // Récupération du textes
   const { texts } = useLanguage();
 
@@ -59,7 +60,7 @@ function Hero({ parallaxRef }: Props) {
       <BackgroundLayer speed={0.3} path={img6Birds} />
 
       {/* Barre de navigation */}
-      <NavigationBar speed={-2} parallaxRef={parallaxRef} />
+      <NavigationBar speed={-2} parallaxRef={parallaxRef} skillsOffset={skillsOffset} />
 
       <LangSwitch speed={-2.2} />
       {/* <DarkSwitch speed={-2.7} /> */}
