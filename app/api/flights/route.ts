@@ -69,6 +69,10 @@ export async function GET(request: NextRequest) {
     const token = await getAccessToken();
     const headers: Record<string, string> = { "User-Agent": "portfolio-app" };
     if (token) headers["Authorization"] = `Bearer ${token}`;
+    console.log(`[OpenSky] attached token: ${Boolean(token)}`);
+    if (!token) {
+      console.error("[OpenSky] NO TOKEN - env vars likely missing in Vercel!");
+    }
 
     const res = await fetch(openSkyUrl, {
       headers,
