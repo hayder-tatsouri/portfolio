@@ -9,6 +9,10 @@
 
 import { NextRequest, NextResponse } from "next/server";
 
+// Vercel serverless functions have a max duration; on Hobby this is 10s.
+// OpenSky can be slow from datacenter IPs, so give it more room.
+export const maxDuration = 30;
+
 const TOKEN_URL =
   "https://auth.opensky-network.org/auth/realms/opensky-network/protocol/openid-connect/token";
 
@@ -58,37 +62,64 @@ export async function GET(request: NextRequest) {
   const lamax = searchParams.get("lamax") || "38";
   const lomax = searchParams.get("lomax") || "12";
 
-  try {
+  // Try up to 3 times: OpenSky is slow/flaky from datacenter IPs, so one
+  // request may time out even though the data is fine.
+  const fetchFlights = async (): Promise<{ res: Response; status: number }> => {
     const openSkyUrl = `https://opensky-network.org/api/states/all?lamin=${lamin}&lomin=${lomin}&lamax=${lamax}&lomax=${lomax}`;
-
     const token = await getAccessToken();
     const headers: Record<string, string> = { "User-Agent": "portfolio-app" };
     if (token) headers["Authorization"] = `Bearer ${token}`;
 
     const res = await fetch(openSkyUrl, {
       headers,
-      signal: AbortSignal.timeout(8000),
+      signal: AbortSignal.timeout(9000),
       next: { revalidate: 30 },
     });
+    return { res, status: res.status };
+  };
 
-    // Log quota usage to the terminal
-    const remaining = res.headers.get("x-rate-limit-remaining");
-    const limit = res.headers.get("x-rate-limit-limit") || "4000";
-    if (remaining !== null) {
-      console.log(`[OpenSky] Quota remaining: ${remaining} / ${limit}`);
-    } else {
-      console.log("[OpenSky] No rate-limit header returned (likely a cached response)");
+  const MAX_ATTEMPTS = 3;
+
+  try {
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      try {
+        const { res, status } = await fetchFlights();
+        // 4xx/5xx are final; network/timeout errors throw and trigger a retry.
+        if (res.ok) {
+          const remaining = res.headers.get("x-rate-limit-remaining");
+          const limit = res.headers.get("x-rate-limit-limit") || "4000";
+          console.log(
+            remaining !== null
+              ? `[OpenSky] Quota remaining after attempt ${attempt}: ${remaining} / ${limit}`
+              : `[OpenSky] Attempt ${attempt} ok (cached response)`
+          );
+          const data = await res.json();
+          return NextResponse.json(data);
+        }
+        // Only retry on 429 (rate limit) — a real error won't change on retry.
+        if (status === 429) {
+          await new Promise((r) => setTimeout(r, 300 * attempt));
+          continue;
+        }
+        return NextResponse.json(
+          { error: "OpenSky API error", status },
+          { status: 502 }
+        );
+      } catch (e) {
+        const isTimeout =
+          e instanceof Error && (e.name === "TimeoutError" || /aborted/i.test(e.message));
+        if (isTimeout && attempt < MAX_ATTEMPTS) {
+            await new Promise((r) => setTimeout(r, 300 * attempt));
+          continue; // transient — retry
+        }
+        throw e; // real error — stop
+      }
     }
-
-    if (!res.ok) {
-      return NextResponse.json(
-        { error: "OpenSky API error", status: res.status },
-        { status: 502 }
-      );
-    }
-
-    const data = await res.json();
-    return NextResponse.json(data);
+    // If we exhausted retries on a 429 or timeout, surface it.
+    return NextResponse.json(
+      { error: "OpenSky unavailable after retries" },
+      { status: 502 }
+    );
   } catch (e) {
     const cause =
       e instanceof Error && e.name === "TimeoutError"
