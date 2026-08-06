@@ -126,17 +126,23 @@ export async function GET(request: NextRequest) {
       { error: "OpenSky unavailable after retries" },
       { status: 502 }
     );
-  } catch (e) {
-    // Record how long the whole request took
+  } catch (err) {
+    console.error("[OpenSky] Failed to fetch flights:", err);
+    console.error("[OpenSky] Cause:", err?.cause);
     const cause =
-      e instanceof Error && e.name === "TimeoutError"
+      err instanceof Error && err.name === "TimeoutError"
         ? "OpenSky request timed out (15s)"
-        : e instanceof Error
-          ? `${e.name}: ${e.message}`
+        : err instanceof Error
+          ? `${err.name}: ${err.message}`
           : "unknown error";
-    console.error("[OpenSky] Failed to fetch flights:", cause);
+    const full =
+      err instanceof Error && err.name === "TimeoutError"
+        ? `[${err.name}] ${err.message}`
+        : err instanceof Error
+          ? `${err.name}: ${err.message}`
+          : "unknown error";
     return NextResponse.json(
-      { error: "Failed to fetch flights", cause },
+      { error: "Failed to fetch flights", cause, full },
       { status: 500 }
     );
   }
