@@ -56,6 +56,19 @@ async function getAccessToken(): Promise<string | null> {
   return cachedToken;
 }
 
+// Serialize the underlying fetch error (e.g. ECONNRESET, ETIMEDOUT, DNS failure).
+function describeCause(cause: unknown): string {
+  if (!cause) return "";
+  if (typeof cause === "string") return cause;
+  if (cause instanceof Error) {
+    const c = cause as Error & { code?: unknown };
+    const code = c.code ? ` [code=${c.code}]` : "";
+    if (c.cause) return `${c.name}: ${c.message}${code} -> ${describeCause(c.cause)}`;
+    return `${c.name}: ${c.message}${code}`;
+  }
+  return String(cause);
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const lamin = searchParams.get("lamin") || "30";
@@ -142,8 +155,9 @@ export async function GET(request: NextRequest) {
         : errObj
           ? `${errObj.name}: ${errObj.message}`
           : "unknown error";
+    const causeDetail = describeCause(errObj?.cause);
     return NextResponse.json(
-      { error: "Failed to fetch flights", cause, full },
+      { error: "Failed to fetch flights", cause: full, ...(causeDetail ? { causeDetail } : {}) },
       { status: 500 }
     );
   }
