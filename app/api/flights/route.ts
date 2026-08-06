@@ -62,8 +62,8 @@ export async function GET(request: NextRequest) {
   const lamax = searchParams.get("lamax") || "38";
   const lomax = searchParams.get("lomax") || "12";
 
-  // Try up to 3 times: OpenSky is slow/flaky from datacenter IPs, so one
-  // request may time out even though the data is fine.
+  // Try up to 3 times with a short timeout so the client falls back quickly
+  // when OpenSky blocks Vercel's datacenter IPs instead of hanging for ages.
   const fetchFlights = async (): Promise<{ res: Response; status: number }> => {
     const openSkyUrl = `https://opensky-network.org/api/states/all?lamin=${lamin}&lomin=${lomin}&lamax=${lamax}&lomax=${lomax}`;
     const token = await getAccessToken();
@@ -72,13 +72,13 @@ export async function GET(request: NextRequest) {
 
     const res = await fetch(openSkyUrl, {
       headers,
-      signal: AbortSignal.timeout(9000),
+      signal: AbortSignal.timeout(6000),
       next: { revalidate: 30 },
     });
     return { res, status: res.status };
   };
 
-  const MAX_ATTEMPTS = 3;
+  const MAX_ATTEMPTS = 2;
 
   try {
     for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
