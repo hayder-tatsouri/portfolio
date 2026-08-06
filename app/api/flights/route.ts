@@ -128,18 +128,19 @@ export async function GET(request: NextRequest) {
     );
   } catch (err) {
     console.error("[OpenSky] Failed to fetch flights:", err);
-    console.error("[OpenSky] Cause:", err?.cause);
+    const errObj = err instanceof Error ? err : null;
+    console.error("[OpenSky] Cause:", errObj?.cause ?? null);
     const cause =
-      err instanceof Error && err.name === "TimeoutError"
+      errObj?.name === "TimeoutError"
         ? "OpenSky request timed out (15s)"
-        : err instanceof Error
-          ? `${err.name}: ${err.message}`
+        : errObj
+          ? `${errObj.name}: ${errObj.message}`
           : "unknown error";
     const full =
-      err instanceof Error && err.name === "TimeoutError"
-        ? `[${err.name}] ${err.message}`
-        : err instanceof Error
-          ? `${err.name}: ${err.message}`
+      errObj?.name === "TimeoutError"
+        ? `[${errObj.name}] ${errObj.message}`
+        : errObj
+          ? `${errObj.name}: ${errObj.message}`
           : "unknown error";
     return NextResponse.json(
       { error: "Failed to fetch flights", cause, full },
