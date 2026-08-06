@@ -14,12 +14,6 @@ type Props = {
   onFactorChange: (factor: number) => void;
 };
 
-// Only report the factor when it meaningfully changes. On mobile the viewport
-// height fluctuates while scrolling (URL bar collapses), which would otherwise
-// change the factor and remount the whole Parallax - resetting the scroll.
-const CHANGE_THRESHOLD = 0.05;
-const MEASURE_DELAY = 200;
-
 function Projects({ factor, onFactorChange }: Props) {
   // Références pour l'apparition au scroll
   const [project1Ref, project1Visible] =
@@ -42,43 +36,34 @@ function Projects({ factor, onFactorChange }: Props) {
     useOnScreen<HTMLDivElement>();
 
   // The grid is taller than a single page on small screens, so we measure its
-  // height and report how many pages it needs to avoid overflowing into Skills.
+  // height and report how many pages it needs to fit without overflowing into
+  // Skills. We measure ONCE after the layout settles (not on every resize):
+  // on mobile the address bar collapses while scrolling, which shrinks
+  // window.innerHeight and would otherwise keep re-measuring and remounting
+  // the Parallax, throwing the user back to the top.
   const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const grid = gridRef.current;
     if (!grid) return;
 
-    let debounce: ReturnType<typeof setTimeout> | undefined;
-    let lastReported = -1;
-
     const measure = () => {
-      clearTimeout(debounce);
-      debounce = setTimeout(() => {
-        const height = grid.offsetHeight;
-        const viewport = window.innerHeight || 800;
-        // Fractional factor instead of Math.ceil: gives the grid exactly the space
-        // it needs (rounded up to 2 decimals so it never overflows into Skills),
-        // removing the big empty page between the last project and Skills.
-        const factor = Math.max(1, height / viewport);
-        const rounded = Math.ceil(factor * 100) / 100;
-        // Avoid endless remount loops: only report when the factor actually
-        // changed enough to matter.
-        if (Math.abs(rounded - lastReported) >= CHANGE_THRESHOLD) {
-          lastReported = rounded;
-          onFactorChange(rounded);
-        }
-      }, MEASURE_DELAY);
+      const height = grid.offsetHeight;
+      const viewport = window.innerHeight || 800;
+      // Fractional factor instead of Math.ceil: gives the grid exactly the space
+      // it needs (rounded up to 2 decimals so it never overflows into Skills),
+      // removing the big empty page between the last project and Skills.
+      const factor = Math.max(1, height / viewport);
+      onFactorChange(Math.ceil(factor * 100) / 100);
     };
 
+    // Measure immediately and again after fonts/images settle.
     measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(grid);
-    window.addEventListener("resize", measure);
+    const t1 = setTimeout(measure, 300);
+    const t2 = setTimeout(measure, 900);
     return () => {
-      clearTimeout(debounce);
-      observer.disconnect();
-      window.removeEventListener("resize", measure);
+      clearTimeout(t1);
+      clearTimeout(t2);
     };
   }, [onFactorChange]);
 
