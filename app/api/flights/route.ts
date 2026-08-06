@@ -41,7 +41,7 @@ async function getAccessToken(): Promise<string | null> {
       client_id: clientId,
       client_secret: clientSecret,
     }),
-    signal: AbortSignal.timeout(8000),
+    signal: AbortSignal.timeout(15000),
   });
 
   if (!res.ok) {
@@ -52,6 +52,7 @@ async function getAccessToken(): Promise<string | null> {
   const data = await res.json();
   cachedToken = data.access_token;
   tokenExpiresAt = Date.now() + (data.expires_in ?? 1800) * 1000;
+  console.log("[OpenSky] fresh token acquired");
   return cachedToken;
 }
 
@@ -76,9 +77,10 @@ export async function GET(request: NextRequest) {
 
     const res = await fetch(openSkyUrl, {
       headers,
-      signal: AbortSignal.timeout(6000),
+      signal: AbortSignal.timeout(15000),
       next: { revalidate: 30 },
     });
+    console.log(`[OpenSky] states fetch returned status ${res.status}`);
     return { res, status: res.status };
   };
 
@@ -125,9 +127,10 @@ export async function GET(request: NextRequest) {
       { status: 502 }
     );
   } catch (e) {
+    // Record how long the whole request took
     const cause =
       e instanceof Error && e.name === "TimeoutError"
-        ? "OpenSky request timed out (8s)"
+        ? "OpenSky request timed out (15s)"
         : e instanceof Error
           ? `${e.name}: ${e.message}`
           : "unknown error";
