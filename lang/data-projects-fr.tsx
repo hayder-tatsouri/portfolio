@@ -26,6 +26,10 @@ import ProdTrackTaskImg from "../public/img/projects/prodTrack/task_assignment.p
 import ProdTrackTeamImg from "../public/img/projects/prodTrack/team_image.jpg";
 import ProdTrackTrackingImg from "../public/img/projects/prodTrack/tracking_board.png";
 import RoboFleetMapImg from "../public/img/projects/robo_fleet/map.jpeg";
+import RoboFleetRviz from "../public/img/projects/robo_fleet/rviz.png";
+import RoboFleetRobots from "../public/img/projects/robo_fleet/robots.png";
+import RoboFleetGZMap from "../public/img/projects/robo_fleet/gz_map.png";
+import RoboFleetReal from "../public/img/projects/robo_fleet/pguard_real.jpg";
 import ARECertifImg from "../public/img/projects/ARE/are_certif.png";
 import RoboCupImg from "../public/img/projects/ARE/robocup.jpg";
 
@@ -168,8 +172,8 @@ const projects = [
       "Navigation outdoor multi-robots et coordination de flotte pilotée par IA — une plateforme de simulation et de contrôle pour une flotte de robots de sécurité autonomes.",
     detailed_description:
       "Pendant mon stage chez Enova Robotics, j'ai construit une plateforme de simulation et de contrôle pour une flotte de robots de sécurité autonomes. Plutôt que de tester dans un monde vide générique, j'ai recréé Novation City / Technopôle de Sousse — le site réel d'Enova — en extrayant les données réelles des bâtiments et routes d'OpenStreetMap pour que les robots patrouillent un jumeau numérique fidèle du terrain qu'ils sont censés garder. Le projet s'est articulé autour de trois axes principaux : la navigation autonome avec un stack Nav2 complet utilisant Regulated Pure Pursuit et des costmaps multicouches avec évitement d'obstacles LiDAR ; une architecture multi-robots où plusieurs robots opèrent simultanément dans le même monde, chacun avec son propre stack de navigation indépendant ; et une couche multi-agents — un serveur MCP exposant des outils d'allocation de tâches, de prédiction de collisions et de commandes en langage naturel à un LLM (Claude), permettant de coordonner et surveiller la flotte via un agent IA et un dashboard en direct.",
-    image_path: RoboFleetMapImg,
-    images: [RoboFleetMapImg],
+    image_path: RoboFleetReal,
+    images: [RoboFleetReal, RoboFleetRobots, RoboFleetGZMap, RoboFleetMapImg, RoboFleetRviz],
     link: "",
     color: "#7c3aed",
     tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Claude API"],

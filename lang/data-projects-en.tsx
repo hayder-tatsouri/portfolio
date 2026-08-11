@@ -180,7 +180,7 @@ const projects = [
     detailed_description:
       "During my internship at Enova Robotics, I built a simulation and control platform for a fleet of autonomous security robots. Rather than testing in a generic empty world, I recreated Novation City / Technopôle de Sousse — Enova's actual site — pulling real building and road data from OpenStreetMap so the robots patrol a faithful digital twin of the ground they're meant to guard. The project came together in three main pieces: autonomous navigation with a full Nav2 stack using Regulated Pure Pursuit control and layered costmaps with LiDAR-based obstacle avoidance; a multi-robot architecture where several robots run simultaneously in the same world, each with its own independent navigation stack; and a multi-agent layer — an MCP server that exposes tools like task allocation, collision prediction, and natural-language commands to an LLM (Claude), so the fleet can be coordinated and monitored through an AI agent and a live dashboard.",
     image_path: RoboFleetReal,
-    images: [RoboFleetReal,RoboFleetRobots,RoboFleetGZMap,RoboFleetMapImg,RoboFleetRviz, ,  ],
+    images: [RoboFleetReal,RoboFleetRobots,RoboFleetGZMap,RoboFleetMapImg,RoboFleetRviz],
     link: "",
     color: "#7c3aed",
     tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Claude API"],
