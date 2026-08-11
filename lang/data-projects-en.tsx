@@ -55,16 +55,15 @@ const projects = [
     description:
       "The first drone ever built by our robotics club (ARE), which I led as project manager alongside a first-year club member.",
     detailed_description:
-      "As Aeronautics Manager of ARE, I led this project from the ground up — component selection, frame assembly, ESC/motor wiring, flight controller setup, and radio calibration — while mentoring a first-year student through the build. Beyond the technical build, this project involved planning the workflow, troubleshooting hardware issues together, and getting the club's first-ever drone into the air. It laid the foundation for later, more advanced builds within the club.",
+      "As Aeronautics Manager of ARE, I led this build from scratch: parts selection, frame assembly, ESC/motor wiring, FC setup, and radio calibration, while mentoring a first-year student along the way. We planned the workflow together, worked through hardware issues as they came up, and got the club's first-ever drone into the air. It set the foundation for the more advanced builds that came after.",
     image_path: FirstFlightImg,
     images: [
       FirstFlightImg,
       FirstFlightAssembly,
-      wallpaperGeneratorImg,
     ],
     videoId: "YrrdYHmk5LU",
 
-    link: "https://github.com/hayder-tatsouri/Wallpaper",
+    link: "",
     color: "#c2410c",
     tech: ["ESP32","IMU", "PID Tuning", "Team Leadership"],
     demo: "",
@@ -75,7 +74,7 @@ const projects = [
   description:
     "An end-to-end intelligent drone platform for real-time agricultural monitoring, combining autonomous flight, onboard AI disease detection, and natural language mission control.",
   detailed_description:
-    "CropEye is an end-to-end intelligent drone platform for real-time agricultural monitoring. It combines autonomous flight control, onboard AI-powered crop disease detection, and a natural language interface — allowing a single prompt to trigger a full autonomous field survey mission. The project addresses the challenge of early disease detection in olive tree plantations, specifically Verticillium wilt, by combining a custom-built quadcopter drone with onboard AI inference, a YOLOv8n model (INT8 quantized) running at 33 FPS on a Raspberry Pi 4, a Model Context Protocol (MCP) layer that translates natural language into autonomous drone actions, and a React-based ground station for real-time monitoring and control.",
+    "CropEye is an end-to-end intelligent drone platform for real-time agricultural monitoring. It combines autonomous flight control, onboard AI-powered crop disease detection, and a natural language interface, allowing a single prompt to trigger a full autonomous field survey mission. The project addresses the challenge of early disease detection in olive tree plantations, specifically Verticillium wilt, by combining a custom-built quadcopter drone with onboard AI inference, a YOLOv8n model running on a Raspberry Pi 4, a Model Context Protocol (MCP) layer that translates natural language into autonomous drone actions, and a React-based ground station for real-time monitoring and control.",
   image_path: CropEyeSetup,
   images: [
     CropEye,
@@ -88,14 +87,14 @@ const projects = [
   videoId: "gq4o41PR8BM",
   link: "https://github.com/hayder-tatsouri/cropEye", // update to CropEye's actual repo
   color: "#0f766e",
-  tech: ["ROS2", "YOLOv8", "MCP", "React", "Raspberry Pi", "MAVSDK"],
+  tech: [ "YOLOv8", "MCP", "React", "Raspberry Pi", "MAVSDK","Pixhawk","SITL"],
   demo: "",
 },
   {
     id: 3,
     title: "2-Inch FPV Drone",
     description:
-      "A tiny 2-inch FPV drone, built and tuned for freestyle flying — compact size, punchy power-to-weight ratio, and a full first-person-view setup.",
+      "A 2-inch freestyle quad I built from scratch. It's light, quick, and set up for aggressive flying.",
     detailed_description:
       "A custom 2-inch FPV drone build focused on compact size and aggressive flying performance. The project covered component selection, frame assembly, soldering, flight controller configuration, and tuning for stable, punchy flight behavior, all packed into a tiny footprint with a full FPV camera and video transmitter setup.",
     image_path: FullSetupImg,
@@ -105,6 +104,8 @@ const projects = [
       FpvImg,
       FpvImgFlying,
     ],
+    videoId: "3WWjgtDNfrI",
+
     link: "",
     color: "#dc2626",
     tech: ["FPV", "Betaflight", "Quadcopter", "Soldering"],
@@ -119,14 +120,15 @@ const projects = [
       "ProdTrack is a smart manufacturing platform designed to help managers monitor workshop activity, optimize productivity, and make data-driven decisions. The system brings together four key components into a single workflow: IoT hardware, with ESP32-based devices equipped with RFID readers, OLED displays, and buzzers installed on each machine to identify operators and collect real-time data; a FastAPI backend that manages business logic, APIs, and communication between all system components; AI-powered analytics, including anomaly detection, production forecasting, and an intelligent assistant that helps managers understand data and make better decisions; and a modern Next.js dashboard that provides a real-time overview of machines, operators, production metrics, and generated reports. This was a collaborative team project. My main contributions were designing the AI agent, implementing automated report generation, and developing the task optimization system. Huge thanks to my teammates Sirine Zaibi, Ahmed Naoui, and Helmi Soudana for making this project possible.",
     image_path: ProdTrackSystemImg,
     images: [
-      ProdTrackTrackingImg,
+      ProdTrackSystemImg,
       ProdTrackDashboardImg,
       ProdTrackTaskImg,
       ProdTrackTeamImg,
     ],
+    videoId: "fDG1yR5pq8Q",
     link: "https://github.com/Helmisoudana/ProdTrack-System/",
     color: "#059669",
-    tech: ["ESP32", "RFID", "FastAPI", "Machine Learning", "Next.js", "IoT"],
+    tech: ["ESP32", "RFID", "FastAPI", "MCP", "IoT","optimization algorithms", "Generative AI" ],
     demo: "",
   },
   {
@@ -158,7 +160,7 @@ const projects = [
     description:
       "A full-stack project management application with an Angular + Tailwind frontend, a Node.js/Express + Sequelize/MySQL backend, and Docker orchestration.",
     detailed_description:
-      "TaskVision is an end-to-end project management application. The frontend is built with Angular and Tailwind, while the backend runs on Node.js/Express with Sequelize and MySQL. It features JWT authentication with bcrypt password hashing, full CRUD for projects, tasks, and comments, an email notification service (Nodemailer/SendGrid/Resend), Swagger API documentation, and an MCP server exposing login, project, and user tools via stdio. The whole stack is orchestrated with Docker Compose.",
+      "TaskVision is an end-to-end project management application. The frontend is built with Angular and Tailwind, while the backend runs on Node.js/Express with Sequelize and MySQL. It features JWT authentication with bcrypt password hashing, full CRUD for projects, tasks, and comments, an email notification service, Swagger API documentation, and an MCP server exposing tasks, project, and user tools. The whole stack is orchestrated with Docker Compose.",
     image_path: TaskVisionDashboard,
     images: [
       TaskVisionDashboard,
@@ -178,12 +180,12 @@ const projects = [
     description:
       "Multi-robot outdoor navigation and AI-driven fleet coordination — a simulation and control platform for a fleet of autonomous security robots.",
     detailed_description:
-      "During my internship at Enova Robotics, I built a simulation and control platform for a fleet of autonomous security robots. Rather than testing in a generic empty world, I recreated Novation City / Technopôle de Sousse — Enova's actual site — pulling real building and road data from OpenStreetMap so the robots patrol a faithful digital twin of the ground they're meant to guard. The project came together in three main pieces: autonomous navigation with a full Nav2 stack using Regulated Pure Pursuit control and layered costmaps with LiDAR-based obstacle avoidance; a multi-robot architecture where several robots run simultaneously in the same world, each with its own independent navigation stack; and a multi-agent layer — an MCP server that exposes tools like task allocation, collision prediction, and natural-language commands to an LLM (Claude), so the fleet can be coordinated and monitored through an AI agent and a live dashboard.",
+      "During my internship at Enova Robotics, I built a simulation and control platform for a fleet of autonomous security robots. Instead of testing in a generic empty world, I recreated Novation City / Technopôle de Sousse, Enova's actual site, using real building and road data from OpenStreetMap so the robots patrol a digital twin of the ground they're meant to guard, using the actual robot model Enova operates in the field.The project has three main pieces: autonomous navigation built on sensor fusion, combining IMU, GPS, LiDAR, and wheel odometry through an EKF for stable localization, feeding into a full Nav2 stack with layered costmaps for path planning and obstacle avoidance; a multi-robot setup where several robots run simultaneously in the same world, each with its own independent navigation stack; and a multi-agent layer, where each agent has its own dedicated skills and tools (task allocation, collision prediction, patrol coordination) exposed through an MCP server, so the fleet can be coordinated through an AI agent and a live dashboard.",
     image_path: RoboFleetReal,
     images: [RoboFleetReal,RoboFleetRobots,RoboFleetGZMap,RoboFleetMapImg,RoboFleetRviz],
     link: "",
     color: "#7c3aed",
-    tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Claude API"],
+    tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Multi-Agent Systems", "LangGraphs"],
     demo: "",
   },
   {
@@ -192,7 +194,7 @@ const projects = [
     description:
       "As a member of the Extended Board of the ENSI Robotics Association, I contributed to organizing and supporting technical events that promote robotics and innovation within the university and across Tunisia.",
     detailed_description:
-      "As a member of the Extended Board of the ENSI Robotics Association, I contributed to organizing and supporting technical events that promote robotics and innovation within the university and across Tunisia. Key contributions include: organized and coordinated RoboCup 8.0, one of the largest robotics events in Tunisia, bringing together students, researchers, and industry professionals; contributed to the planning and execution of workshops, competitions, and community events; served as a trainer (Formateur) during RoboDay, mentoring first-year students as they designed, assembled, and programmed their first line follower robots; helped introduce new members to robotics fundamentals, embedded systems, sensors, motor control, and teamwork through hands-on practical sessions.",
+      "As a member of the Extended Board of the ENSI Robotics Association, I contributed to organizing and supporting technical events that promote robotics and innovation within the university and across Tunisia. Key contributions include: organized and coordinated RoboCup 8.0, one of the largest robotics events in Tunisia, bringing together students, researchers, and industry professionals; contributed to the planning and execution of workshops, competitions, and community events; served as a trainer during RoboDay, mentoring first-year students as they designed, assembled, and programmed their first line follower robots; helped introduce new members to robotics fundamentals, embedded systems, sensors, motor control, and teamwork through hands-on practical sessions.",
     image_path: RoboDayImg,
     images: [ RoboCupImg, RoboDayImg, LaunchImg, ARECertifImg],
     link: "https://github.com/hayder-tatsouri/roboday",
@@ -214,7 +216,7 @@ const projects = [
       AeroWorkshop1Img,
       RCPlaneImg,
       PlaneFoamImg,
-      PlanesModelsImg,
+
     ],
     link: "https://canva.link/1kv6m5zc3cpnm5q",
     color: "#0369a1",

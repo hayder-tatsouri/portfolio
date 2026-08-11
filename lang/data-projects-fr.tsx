@@ -32,7 +32,6 @@ import RoboFleetGZMap from "../public/img/projects/robo_fleet/gz_map.png";
 import RoboFleetReal from "../public/img/projects/robo_fleet/pguard_real.jpg";
 import ARECertifImg from "../public/img/projects/ARE/are_certif.png";
 import RoboCupImg from "../public/img/projects/ARE/robocup.jpg";
-
 import LaunchImg from "../public/img/projects/ARE/launch__day.jpg";
 import RoboDayImg from "../public/img/projects/ARE/roboday_full_teams.jpg";
 import AeroWorkshopImg from "../public/img/projects/aero/aero_workshop.jpg";
@@ -49,11 +48,11 @@ import MazeRobotImg from "../public/img/projects/Maze&Line_Follower/maze_robot.p
 const projects = [
   {
     id: 1,
-    title: "Premier vol",
+    title: "First Flight",
     description:
-      "Le tout premier drone construit par notre club de robotique (ARE), que j’ai dirigé en tant que chef de projet avec un membre de première année.",
+      "Le tout premier drone construit par notre club de robotique (ARE), que j'ai dirigé en tant que chef de projet aux côtés d'un membre de première année.",
     detailed_description:
-      "En tant que responsable aéronautique d’ARE, j’ai mené ce projet de bout en bout: choix des composants, assemblage du châssis, câblage ESC/moteurs, configuration du contrôleur de vol et calibration radio, tout en accompagnant un étudiant de première année pendant la construction. Au-delà de l’aspect technique, ce projet a impliqué la planification du travail, la résolution collective de pannes matérielles et la mise en vol du tout premier drone du club. Il a servi de base aux projets plus avancés lancés ensuite.",
+      "En tant que responsable aéronautique de l'ARE, j'ai mené ce projet de bout en bout — choix des composants, assemblage du châssis, câblage ESC/moteurs, configuration du contrôleur de vol et calibration radio — tout en accompagnant un étudiant de première année tout au long de la construction. Au-delà de la construction technique, ce projet a impliqué la planification du flux de travail, la résolution commune de problèmes matériels et la mise en vol du tout premier drone du club. Il a servi de fondation aux constructions plus avancées lancées ensuite au sein du club.",
     image_path: FirstFlightImg,
     images: [
       FirstFlightImg,
@@ -64,37 +63,38 @@ const projects = [
 
     link: "https://github.com/hayder-tatsouri/Wallpaper",
     color: "#c2410c",
-    tech: ["ESP32", "IMU", "Réglage PID", "Leadership d'équipe"],
+    tech: ["ESP32","IMU", "PID Tuning", "Team Leadership"],
     demo: "",
   },
-  {
-    id: 2,
-    title: "CropEye",
-    description:
-      "Une plateforme drone intelligente de bout en bout pour la surveillance agricole en temps réel, combinant vol autonome, détection de maladies par IA embarquée et contrôle de mission en langage naturel.",
-    detailed_description:
-      "CropEye est une plateforme drone intelligente de bout en bout pour la surveillance agricole en temps réel. Elle combine le contrôle de vol autonome, la détection de maladies des cultures propulsée par IA embarquée et une interface en langage naturel — permettant à une simple requête de déclencher une mission complète d'inspection autonome du champ. Le projet répond au défi de la détection précoce des maladies dans les oliveraies, notamment la verticilliose, en combinant un quadricoptère construit sur mesure avec inférence IA embarquée, un modèle YOLOv8n (quantifié en INT8) tournant à 33 FPS sur un Raspberry Pi 4, une couche Model Context Protocol (MCP) qui traduit le langage naturel en actions autonomes du drone, et une station au sol basée sur React pour la surveillance et le contrôle en temps réel.",
-    image_path: CropEyeSetup,
-    images: [
-      CropEye,
-      CropEyeTelemetry,
-      CropEyeinterface,
-      CropEyeWiring,
-      CropEyeArchi,
-    ],
-    videoId: "gq4o41PR8BM",
-    link: "https://github.com/hayder-tatsouri/cropEye",
-    color: "#0f766e",
-    tech: ["ROS2", "YOLOv8", "MCP", "React", "Raspberry Pi", "MAVSDK"],
-    demo: "",
-  },
+ {
+  id: 2,
+  title: "CropEye",
+  description:
+    "Une plateforme drone intelligente de bout en bout pour la surveillance agricole en temps réel, combinant vol autonome, détection de maladies par IA embarquée et contrôle de mission en langage naturel.",
+  detailed_description:
+    "CropEye est une plateforme drone intelligente de bout en bout pour la surveillance agricole en temps réel. Elle combine le contrôle de vol autonome, la détection de maladies des cultures propulsée par IA embarquée et une interface en langage naturel — permettant à une simple requête de déclencher une mission complète d'inspection autonome du champ. Le projet répond au défi de la détection précoce des maladies dans les oliveraies, notamment la verticilliose, en combinant un quadricoptère construit sur mesure avec inférence IA embarquée, un modèle YOLOv8n (quantifié en INT8) tournant à 33 FPS sur un Raspberry Pi 4, une couche Model Context Protocol (MCP) qui traduit le langage naturel en actions autonomes du drone, et une station au sol basée sur React pour la surveillance et le contrôle en temps réel.",
+  image_path: CropEyeSetup,
+  images: [
+    CropEye,
+    CropEyeTelemetry,
+    CropEyeinterface,
+    CropEyeWiring,
+    CropEyeArchi
+
+  ],
+  videoId: "gq4o41PR8BM",
+  link: "https://github.com/hayder-tatsouri/cropEye",
+  color: "#0f766e",
+  tech: ["ROS2", "YOLOv8", "MCP", "React", "Raspberry Pi", "MAVSDK"],
+  demo: "",
+},
   {
     id: 3,
-    title: "Drone FPV 2 pouces",
+    title: "2-Inch FPV Drone",
     description:
-      "Un petit drone FPV de 2 pouces, construit et réglé pour le vol freestyle — format compact, excellent rapport poids/puissance et installation first-person-view complète.",
+      "Un petit drone FPV de 2 pouces, construit et réglé pour le vol freestyle — format compact, excellent rapport puissance/poids et installation first-person-view complète.",
     detailed_description:
-      "Un drone FPV 2 pouces sur mesure axé sur la compacité et les performances de vol agressives. Le projet a couvert la sélection des composants, l’assemblage du châssis, le soudage, la configuration du contrôleur de vol et le réglage fin pour un comportement de vol stable et nerveux, le tout dans un format minuscule avec une caméra FPV et un émetteur vidéo complets.",
+      "Un drone FPV 2 pouces sur mesure axé sur la compacité et des performances de vol agressives. Le projet a couvert la sélection des composants, l'assemblage du châssis, le soudage, la configuration du contrôleur de vol et le réglage pour un comportement de vol stable et nerveux, le tout dans un format minuscule avec une caméra FPV et un émetteur vidéo complets.",
     image_path: FullSetupImg,
     images: [
       FullSetupImg,
@@ -104,16 +104,16 @@ const projects = [
     ],
     link: "",
     color: "#dc2626",
-    tech: ["FPV", "Betaflight", "Quadricoptère", "Soudure"],
+    tech: ["FPV", "Betaflight", "Quadcopter", "Soldering"],
     demo: "",
   },
   {
     id: 4,
     title: "ProdTrack",
     description:
-      "Système de supervision industrielle complet, conçu pour les ateliers textiles. Il connecte le terrain (machines, opérateurs) à la direction (managers, rapports) en passant par une couche intelligente de Machine Learning et d’IA générative.",
+      "Un système de supervision industrielle complet pour ateliers textiles, reliant le terrain (machines, opérateurs) à la direction (managers, rapports) grâce à une couche intelligente de Machine Learning et d'IA générative.",
     detailed_description:
-      "ProdTrack est une plateforme de fabrication intelligente conçue pour aider les managers à surveiller l’activité de l’atelier, optimiser la productivité et prendre des décisions basées sur les données. Le système réunit quatre composants clés en un seul flux de travail : le matériel IoT, avec des appareils à base d’ESP32 équipés de lecteurs RFID, d’écrans OLED et de buzzers installés sur chaque machine pour identifier les opérateurs et collecter des données en temps réel ; un backend FastAPI qui gère la logique métier, les API et la communication entre tous les composants du système ; des analyses propulsées par l’IA, notamment la détection d’anomalies, la prévision de production et un assistant intelligent qui aide les managers à comprendre les données et à prendre de meilleures décisions ; et un dashboard moderne en Next.js offrant une vue en temps réel des machines, opérateurs, indicateurs de production et rapports générés. C’était un projet d’équipe collaboratif. Mes principales contributions ont été la conception de l’agent IA, la mise en œuvre de la génération automatique de rapports et le développement du système d’optimisation des tâches. Un immense merci à mes coéquipiers Sirine Zaibi, Ahmed Naoui et Helmi Soudana, grâce à qui ce projet a été possible.",
+      "ProdTrack est une plateforme de fabrication intelligente conçue pour aider les managers à surveiller l'activité de l'atelier, optimiser la productivité et prendre des décisions basées sur les données. Le système réunit quatre composants clés en un seul flux de travail : le matériel IoT, avec des appareils à base d'ESP32 équipés de lecteurs RFID, d'écrans OLED et de buzzers installés sur chaque machine pour identifier les opérateurs et collecter des données en temps réel ; un backend FastAPI qui gère la logique métier, les API et la communication entre tous les composants du système ; des analyses propulsées par l'IA, notamment la détection d'anomalies, la prévision de production et un assistant intelligent qui aide les managers à comprendre les données et à prendre de meilleures décisions ; et un dashboard moderne en Next.js offrant une vue en temps réel des machines, opérateurs, indicateurs de production et rapports générés. C'était un projet d'équipe collaboratif. Mes principales contributions ont été la conception de l'agent IA, la mise en œuvre de la génération automatique de rapports et le développement du système d'optimisation des tâches. Un immense merci à mes coéquipiers Sirine Zaibi, Ahmed Naoui et Helmi Soudana pour avoir rendu ce projet possible.",
     image_path: ProdTrackSystemImg,
     images: [
       ProdTrackTrackingImg,
@@ -128,11 +128,11 @@ const projects = [
   },
   {
     id: 5,
-    title: "Robots Solveur de Labyrinthe & Suiveur de Ligne",
+    title: "Maze Solver & Line Follower Robots",
     description:
-      "Robots autonomes Suiveur de Ligne et Solveur de Labyrinthe, conçus, construits et programmés from scratch pour des compétitions nationales de robotique.",
+      "Robots autonomes Suiveur de Ligne et Solveur de Labyrinthe, conçus, construits et programmés de zéro pour des compétitions nationales de robotique.",
     detailed_description:
-      "Dans le cadre du club de robotique, j'ai conçu, construit et programmé des robots autonomes Suiveur de Ligne et Solveur de Labyrinthe pour des compétitions nationales de robotique. Les robots ont été développés de zéro, incluant l'assemblage mécanique, l'intégration électronique, l'étalonnage des capteurs et le développement du logiciel embarqué. Le robot Suiveur de Ligne utilisait des capteurs infrarouges et des algorithmes de contrôle pour suivre avec précision des pistes à haute vitesse, tandis que le Solveur de Labyrinthe combinait des capteurs de distance avec une logique de planification de chemin pour explorer, cartographier et résoudre de manière autonome des labyrinthes inconnus dans le trajet le plus court possible. Ces projets ont renforcé mes compétences en systèmes embarqués, programmation de microcontrôleurs, fusion de capteurs, contrôle moteur, réglage PID, conception d'algorithmes et intégration de systèmes robotiques.",
+      "Dans le cadre du club de robotique, j'ai conçu, construit et programmé des robots autonomes Suiveur de Ligne et Solveur de Labyrinthe pour des compétitions nationales de robotique. Les robots ont été développés de zéro, incluant l'assemblage mécanique, l'intégration électronique, l'étalonnage des capteurs et le développement du logiciel embarqué. Le robot Suiveur de Ligne utilisait des capteurs infrarouges et des algorithmes de contrôle pour suivre avec précision des pistes à haute vitesse, tandis que le Solveur de Labyrinthe combinait des capteurs de distance avec une logique de planification de chemin pour explorer, cartographier et résoudre de manière autonome des labyrinthes inconnus dans le trajet le plus court possible. Ces projets ont renforcé mes compétences en systèmes embarqués, programmation de microcontrôleurs, fusion de capteurs, contrôle moteur, réglage PID, conception d'algorithmes et intégration de systèmes robotiques, tout en offrant une expérience pratique de préparation de robots pour des environnements compétitifs.",
     image_path: MazeRobotImg,
     images: [
       MazeRobotImg,
@@ -142,16 +142,16 @@ const projects = [
     ],
     link: "https://github.com/hayder-tatsouri/Maze-solver-robot",
     color: "#dc2626",
-    tech: ["Arduino", "ESP32", "Capteurs IR", "Capteurs Ultrasoniques", "Moteurs DC", "Contrôle PID", "C/C++", "Systèmes embarqués"],
+    tech: ["Arduino", "ESP32", "IR Sensors", "Ultrasonic Sensors", "DC Motors", "PID Control", "C/C++", "Embedded Systems"],
     demo: "",
   },
   {
     id: 6,
     title: "TaskVision",
     description:
-      "Application de gestion de projet full-stack avec un frontend Angular + Tailwind, un backend Node.js/Express + Sequelize/MySQL et une orchestration Docker.",
+      "Une application full-stack de gestion de projet avec un frontend Angular + Tailwind, un backend Node.js/Express + Sequelize/MySQL et une orchestration Docker.",
     detailed_description:
-      "TaskVision est une application complète de gestion de projet. Le frontend est construit avec Angular et Tailwind, tandis que le backend repose sur Node.js/Express avec Sequelize et MySQL. Elle comprend l’authentification JWT avec hachage des mots de passe via bcrypt, du CRUD complet pour les projets, tâches et commentaires, un service de notification par email (Nodemailer/SendGrid/Resend), une documentation API Swagger et un serveur MCP exposant des outils de connexion, de projets et d’utilisateurs via stdio. L’ensemble est orchestré avec Docker Compose.",
+      "TaskVision est une application de gestion de projet complète. Le frontend est construit avec Angular et Tailwind, tandis que le backend repose sur Node.js/Express avec Sequelize et MySQL. Elle comprend l'authentification JWT avec hachage des mots de passe via bcrypt, du CRUD complet pour les projets, tâches et commentaires, un service de notification par email (Nodemailer/SendGrid/Resend), une documentation API Swagger et un serveur MCP exposant des outils de connexion, de projets et d'utilisateurs via stdio. L'ensemble est orchestré avec Docker Compose.",
     image_path: TaskVisionDashboard,
     images: [
       TaskVisionDashboard,
@@ -173,7 +173,7 @@ const projects = [
     detailed_description:
       "Pendant mon stage chez Enova Robotics, j'ai construit une plateforme de simulation et de contrôle pour une flotte de robots de sécurité autonomes. Plutôt que de tester dans un monde vide générique, j'ai recréé Novation City / Technopôle de Sousse — le site réel d'Enova — en extrayant les données réelles des bâtiments et routes d'OpenStreetMap pour que les robots patrouillent un jumeau numérique fidèle du terrain qu'ils sont censés garder. Le projet s'est articulé autour de trois axes principaux : la navigation autonome avec un stack Nav2 complet utilisant Regulated Pure Pursuit et des costmaps multicouches avec évitement d'obstacles LiDAR ; une architecture multi-robots où plusieurs robots opèrent simultanément dans le même monde, chacun avec son propre stack de navigation indépendant ; et une couche multi-agents — un serveur MCP exposant des outils d'allocation de tâches, de prédiction de collisions et de commandes en langage naturel à un LLM (Claude), permettant de coordonner et surveiller la flotte via un agent IA et un dashboard en direct.",
     image_path: RoboFleetReal,
-    images: [RoboFleetReal, RoboFleetRobots, RoboFleetGZMap, RoboFleetMapImg, RoboFleetRviz],
+    images: [RoboFleetReal,RoboFleetRobots,RoboFleetGZMap,RoboFleetMapImg,RoboFleetRviz],
     link: "",
     color: "#7c3aed",
     tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Claude API"],
@@ -181,27 +181,28 @@ const projects = [
   },
   {
     id: 8,
-    title: "Association Robotique ENSI",
+    title: "ENSI Robotics Association",
     description:
-      "En tant que membre du bureau étendu de l’Association Robotique de l’ENSI, j’ai contribué à l’organisation et au soutien d’événements techniques qui promeuvent la robotique et l’innovation au sein de l’université et à travers la Tunisie.",
+      "En tant que membre du bureau étendu de l'Association Robotique de l'ENSI, j'ai contribué à l'organisation et au soutien d'événements techniques qui promeuvent la robotique et l'innovation au sein de l'université et à travers la Tunisie.",
     detailed_description:
-      "En tant que membre du bureau étendu de l’Association Robotique de l’ENSI, j’ai contribué à l’organisation et au soutien d’événements techniques qui promeuvent la robotique et l’innovation au sein de l’université et à travers la Tunisie. Les contributions clé incluent : l’organisation et la coordination du RoboCup 8.0, l’un des plus grands événements de robotique en Tunisie, réunissant étudiants, chercheurs et professionnels de l’industrie ; la contribution à la planification et à l’exécution d’ateliers, compétitions et événements communautaires ; le rôle de formateur lors du RoboDay, en encadrant des étudiants de première année pendant la conception, l’assemblage et la programmation de leurs premiers robots suivants de ligne ; et l’introduction de nouveaux membres aux fondamentaux de la robotique, aux systèmes embarqués, aux capteurs, au contrôle moteur et au travail d’équipe via des sessions pratiques.",
+      "En tant que membre du bureau étendu de l'Association Robotique de l'ENSI, j'ai contribué à l'organisation et au soutien d'événements techniques qui promeuvent la robotique et l'innovation au sein de l'université et à travers la Tunisie. Les contributions clés incluent : l'organisation et la coordination du RoboCup 8.0, l'un des plus grands événements de robotique en Tunisie, réunissant étudiants, chercheurs et professionnels de l'industrie ; la contribution à la planification et à l'exécution d'ateliers, compétitions et événements communautaires ; le rôle de formateur (Formateur) lors du RoboDay, en encadrant des étudiants de première année pendant la conception, l'assemblage et la programmation de leurs premiers robots suiveurs de ligne ; et l'aide apportée aux nouveaux membres pour découvrir les fondamentaux de la robotique, les systèmes embarqués, les capteurs, le contrôle moteur et le travail d'équipe à travers des sessions pratiques.",
     image_path: RoboDayImg,
-    images: [RoboCupImg, RoboDayImg, LaunchImg, ARECertifImg],
+    images: [ RoboCupImg, RoboDayImg, LaunchImg, ARECertifImg],
     link: "https://github.com/hayder-tatsouri/roboday",
     color: "#b91c1c",
-    tech: ["Robotique", "Organisation d'événements", "Mentorat", "Systèmes embarqués"],
+    tech: ["Robotics", "Event Organization", "Mentoring", "Embedded Systems"],
     demo: "",
   },
   {
     id: 9,
-    title: "Division Aéronautique ARE",
+    title: "ARE Aeronautics Division",
     description:
       "En tant que responsable aéronautique de l'ARE (Association de Robotique de l'ENSI), j'ai dirigé la division aéronautique, organisé des ateliers techniques et coordonné des projets étudiants autour d'avions RC et de planeurs.",
     detailed_description:
-      "En tant que responsable aéronautique de l'ARE (Association de Robotique de l'ENSI), j'étais en charge de diriger la division aéronautique, d'organiser des ateliers techniques et de coordonner des projets étudiants. J'ai animé des sessions pratiques où les participants ont conçu et construit des avions RC et des planeurs, en les initiant aux fondamentaux de l'aérodynamique et de la conception aéronautique. En complément de la formation technique, j'ai géré la planification des projets, délégué les tâches au sein de l'équipe et assuré une collaboration efficace pour mener à bien nos initiatives aéronautiques.",
+      "En tant que responsable aéronautique de l'ARE (Association de Robotique de l'ENSI), j'étais chargé de diriger la division aéronautique, d'organiser des ateliers techniques et de coordonner des projets étudiants. J'ai animé des sessions pratiques où les participants ont conçu et construit des avions RC et des planeurs, en les initiant aux fondamentaux de l'aérodynamique et de la conception aéronautique. En complément de la formation technique, j'ai géré la planification des projets, délégué les tâches au sein de l'équipe et assuré une collaboration efficace pour mener à bien nos initiatives aéronautiques.",
     image_path: AerodynamiqueImg,
     images: [
+      
       AeroWorkshopImg,
       AeroWorkshop1Img,
       RCPlaneImg,
@@ -210,7 +211,7 @@ const projects = [
     ],
     link: "https://canva.link/1kv6m5zc3cpnm5q",
     color: "#0369a1",
-    tech: ["Aérodynamique", "Aéronefs RC", "Atelier", "Leadership d'équipe"],
+    tech: ["Aerodynamics", "RC Aircraft", "Workshop", "Team Leadership"],
     demo: "",
   },
 ];
