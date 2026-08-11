@@ -22,6 +22,14 @@ import ProdTrackTaskImg from "../public/img/projects/prodTrack/task_assignment.p
 import ProdTrackTeamImg from "../public/img/projects/prodTrack/team_image.jpg";
 import ProdTrackTrackingImg from "../public/img/projects/prodTrack/tracking_board.png";
 import RoboFleetMapImg from "../public/img/projects/robo_fleet/map.jpeg";
+import RoboFleetRviz from "../public/img/projects/robo_fleet/rviz.png";
+import RoboFleetRobots from "../public/img/projects/robo_fleet/robots.png";
+import RoboFleetGZMap from "../public/img/projects/robo_fleet/gz_map.png";
+import RoboFleetReal from "../public/img/projects/robo_fleet/pguard_real.jpg";
+
+
+
+
 import ARECertifImg from "../public/img/projects/ARE/are_certif.png";
 import RoboCupImg from "../public/img/projects/ARE/robocup.jpg";
 import LaunchImg from "../public/img/projects/ARE/launch__day.jpg";
@@ -56,7 +64,7 @@ const projects = [
     ],
     videoId: "YrrdYHmk5LU",
 
-    link: "https://github.com/Raseraa0/Wallpaper",
+    link: "https://github.com/hayder-tatsouri/Wallpaper",
     color: "#c2410c",
     tech: ["ESP32","IMU", "PID Tuning", "Team Leadership"],
     demo: "",
@@ -171,8 +179,8 @@ const projects = [
       "Multi-robot outdoor navigation and AI-driven fleet coordination — a simulation and control platform for a fleet of autonomous security robots.",
     detailed_description:
       "During my internship at Enova Robotics, I built a simulation and control platform for a fleet of autonomous security robots. Rather than testing in a generic empty world, I recreated Novation City / Technopôle de Sousse — Enova's actual site — pulling real building and road data from OpenStreetMap so the robots patrol a faithful digital twin of the ground they're meant to guard. The project came together in three main pieces: autonomous navigation with a full Nav2 stack using Regulated Pure Pursuit control and layered costmaps with LiDAR-based obstacle avoidance; a multi-robot architecture where several robots run simultaneously in the same world, each with its own independent navigation stack; and a multi-agent layer — an MCP server that exposes tools like task allocation, collision prediction, and natural-language commands to an LLM (Claude), so the fleet can be coordinated and monitored through an AI agent and a live dashboard.",
-    image_path: RoboFleetMapImg,
-    images: [RoboFleetMapImg],
+    image_path: RoboFleetReal,
+    images: [RoboFleetReal,RoboFleetRobots,RoboFleetGZMap,RoboFleetMapImg,RoboFleetRviz, ,  ],
     link: "",
     color: "#7c3aed",
     tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Claude API"],

@@ -88,7 +88,7 @@ function Footer({ offset = 5 }: FooterProps) {
           {/* Media Mail */}
           <FooterMedia
             name={texts.footer.mail}
-            href="mailto:raserarthur71@gmail.com"
+            href="mailto:hayder.tastouri@ensi-uma.tn"
           />
         </div>
       </div>

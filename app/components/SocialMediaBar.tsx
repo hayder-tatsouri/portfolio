@@ -136,7 +136,7 @@ export default function SocialMediaBar({ speed }: Props) {
           <SocialMedia
             svgSrc={mailBadge}
             num="3"
-            href="mailto:raserarthur71@gmail.com"
+            href="mailto:hayder.tastouri@ensi-uma.tn"
             alt={texts.hero.social.altMail}
           />
         </div>

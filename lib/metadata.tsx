@@ -5,11 +5,11 @@
 import type { Metadata } from "next";
 
 const metadataInfos: Metadata = {
-  title: "Arthur Rasera Portfolio | Software Developer",
+  title: "Hayder Tastouri Portfolio | Software Developer",
   description:
-    "Portfolio of Arthur Rasera, software engineer passionate about web development, artificial intelligence, and SAP systems. Explore my projects, skills, and professional experience.",
+    "Portfolio of Hayder Tastouri, software engineer passionate about web development, artificial intelligence, and SAP systems. Explore my projects, skills, and professional experience.",
   keywords: [
-    "Arthur Rasera",
+    "Hayder Tastouri",
     "web developer",
     "portfolio",
     "Next.js",
@@ -22,21 +22,21 @@ const metadataInfos: Metadata = {
     "C++",
     "software engineer",
   ],
-  authors: [{ name: "Arthur", url: "https://github.com/Raseraa0/" }],
-  creator: "Arthur",
-  publisher: "Arthur",
+  authors: [{ name: "Hayder Tastouri", url: "https://github.com/hayder-tatsouri/" }],
+  creator: "Hayder Tastouri",
+  publisher: "Hayder Tastouri",
   openGraph: {
-    title: "Arthur Rasera Portfolio | Software Developer",
+    title: "Hayder Tastouri Portfolio | Software Developer",
     description:
-      "Discover the portfolio of Arthur Rasera: web apps with Next.js, AI projects using Python, low-level and SAP development, and DevOps tools.",
+      "Discover the portfolio of Hayder Tastouri: web apps with Next.js, AI projects using Python, low-level and SAP development, and DevOps tools.",
     url: "https://hayder-tatsouri.github.io/portfolio/",
-    siteName: "Arthur Rasera Portfolio",
+    siteName: "Hayder Tastouri Portfolio",
     images: [
       {
         url: "https://hayder-tatsouri.github.io/portfolio/preview.png", // Replace with your real image URL
         width: 1856,
         height: 928,
-        alt: "Preview of Arthur Rasera's developer portfolio",
+        alt: "Preview of Hayder Tastouri's developer portfolio",
       },
     ],
     locale: "en_US",
