@@ -5,38 +5,41 @@
 import type { Metadata } from "next";
 
 const metadataInfos: Metadata = {
-  title: "Hayder Tastouri Portfolio | Software Developer",
+  title: "Hayder Tastouri Portfolio | Robotics Software Engineer",
   description:
-    "Portfolio of Hayder Tastouri, software engineer passionate about web development, artificial intelligence, and SAP systems. Explore my projects, skills, and professional experience.",
+    "Portfolio of Hayder Tastouri, robotics software engineer passionate about autonomous drones, UAV systems, and AI-driven robotics. Explore my projects, skills, and professional experience.",
   keywords: [
     "Hayder Tastouri",
-    "web developer",
+    "robotics software engineer",
+    "UAV",
+    "autonomous drones",
+    "ROS2",
     "portfolio",
-    "Next.js",
-    "React",
+    "embedded systems",
     "artificial intelligence",
-    "SAP development",
-    "DevOps",
+    "multi-robot systems",
+    "ArduPilot",
     "Python",
     "TypeScript",
     "C++",
-    "software engineer",
+    "Next.js",
+    "React",
   ],
   authors: [{ name: "Hayder Tastouri", url: "https://github.com/hayder-tatsouri/" }],
   creator: "Hayder Tastouri",
   publisher: "Hayder Tastouri",
   openGraph: {
-    title: "Hayder Tastouri Portfolio | Software Developer",
+    title: "Hayder Tastouri Portfolio | Robotics Software Engineer",
     description:
-      "Discover the portfolio of Hayder Tastouri: web apps with Next.js, AI projects using Python, low-level and SAP development, and DevOps tools.",
-    url: "https://hayder-tatsouri.github.io/portfolio/",
+      "Discover the portfolio of Hayder Tastouri: autonomous drone and UAV projects, ROS2 multi-robot systems, AI-powered robotics, and embedded systems development.",
+    url: "https://hayder-tastouri-portfolio.vercel.app/",
     siteName: "Hayder Tastouri Portfolio",
     images: [
       {
-        url: "https://hayder-tatsouri.github.io/portfolio/preview.png", // Replace with your real image URL
+        url: "https://hayder-tastouri-portfolio.vercel.app/preview.png", // Replace with your real image URL
         width: 1856,
         height: 928,
-        alt: "Preview of Hayder Tastouri's developer portfolio",
+        alt: "Preview of Hayder Tastouri's robotics software engineer portfolio",
       },
     ],
     locale: "en_US",
@@ -45,7 +48,7 @@ const metadataInfos: Metadata = {
   icons: {
     icon: "/img/favicon.png",
   },
-  metadataBase: new URL("https://hayder-tatsouri.github.io/portfolio/"),
+  metadataBase: new URL("https://hayder-tastouri-portfolio.vercel.app/"),
 };
 
 export default metadataInfos;

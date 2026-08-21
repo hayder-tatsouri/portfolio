@@ -12,10 +12,10 @@
 
 ## 📝 Overview
 
-Portfolio deployed on `GitHub Pages`. The main idea behind this portfolio was to use the `parallax` effect. I decided to use an image from the game `Firewatch` and build my color palette around it. I created the different parallax layers myself.
+Portfolio deployed on `Vercel`. The main idea behind this portfolio was to use the `parallax` effect. I built it around a plane/flight theme to reflect my passion for aeronautics and drones, and created the different parallax layers myself.
 
 This site is animated and responsive, but nothing beats visiting it to see for yourself.
-- 🚀 [Go to my portfolio](https://hayder-tatsouri.github.io/portfolio/)
+- 🚀 [Go to my portfolio](https://hayder-tastouri-portfolio.vercel.app/)
 
 ## 🧰 Toolbox
 

@@ -23,7 +23,7 @@ const textsFr = {
   },
   about: {
     altPicture: "Photo de profil",
-    desc: "Salut, je suis étudiant en deuxième année de génie informatique à l’ENSI Manouba, passionné par l’aéronautique, les systèmes autonomes et l’IA agentique. J’aime construire des projets qui combinent robotique, drones et IA pour résoudre des problèmes concrets.",
+    desc: "Salut, je suis étudiant en dernière année de génie informatique à l'ENSI Manouba, passionné par la robotique, l'aéronautique, les systèmes autonomes et l'IA agentique. J'aime construire des projets qui combinent robotique, drones et IA pour résoudre des problèmes concrets.",
     seeCV: "Cliquez pour voir mon CV",
     timeline: {
       bac: {

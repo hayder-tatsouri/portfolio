@@ -23,7 +23,7 @@ const textsEn = {
   },
   about: {
     altPicture: "Profile picture",
-    desc: "Hi, I'm a second-year Computer Science Engineering student at ENSI Manouba, passionate about aeronautics, autonomous systems, and agentic AI. I enjoy building projects that combine robotics, drones, and AI to solve real problems.",
+    desc: "Hi, I'm a final-year Computer Science Engineering student at ENSI Manouba, passionate about robotics, aeronautics, autonomous systems, and agentic AI. I enjoy building projects that combine robotics, drones, and AI to solve real problems.",
     seeCV: "Click to view my CV",
     timeline: {
       bac: {
