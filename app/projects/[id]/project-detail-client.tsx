@@ -294,16 +294,17 @@ function ProjectDetailClient({ id }: Props) {
               ))}
             </div>
 
-            {/* GitHub link */}
-            <Link
-              href={selectedProject.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-xl border border-blue-7 py-3 text-sm font-semibold text-blue-3 transition hover:bg-blue-8"
-              style={{ borderColor: accentColor + "66" }}
-            >
-              View source on GitHub →
-            </Link>
+            {selectedProject.link && (
+              <Link
+                href={selectedProject.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 rounded-xl border border-blue-7 py-3 text-sm font-semibold text-blue-3 transition hover:bg-blue-8"
+                style={{ borderColor: accentColor + "66" }}
+              >
+                View source on GitHub →
+              </Link>
+            )}
 
             {/* Project navigation (bottom) */}
             <div className="mt-auto flex gap-3 pt-4">

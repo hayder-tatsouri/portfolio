@@ -61,7 +61,7 @@ const projects = [
     ],
     videoId: "YrrdYHmk5LU",
 
-    link: "https://github.com/hayder-tatsouri/Wallpaper",
+    link: "",
     color: "#c2410c",
     tech: ["ESP32","IMU", "PID Tuning", "Team Leadership"],
     demo: "",

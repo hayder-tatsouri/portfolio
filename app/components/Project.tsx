@@ -68,12 +68,14 @@ function Project({ ref, id, className }: Props) {
         background: `linear-gradient(45deg, ${darkenedColor}, ${bg_col} 20%, ${darkenedColor} 45%,${bg_col} 70%, ${darkenedColor})`,
       }}
     >
-      <SocialMedia
-        svgSrc={githubBadge}
-        className="p-fluide-anim absolute bottom-1 right-1 z-50 scale-90 shadow-[0_0_5px] shadow-blue-1 lg:bottom-4 lg:right-4 lg:scale-125"
-        href={selectedProject?.link}
-        alt={`${texts.projects.altProjects} ${selectedProject?.title}`}
-      />
+      {selectedProject?.link && (
+        <SocialMedia
+          svgSrc={githubBadge}
+          className="p-fluide-anim absolute bottom-1 right-1 z-50 scale-90 shadow-[0_0_5px] shadow-blue-1 lg:bottom-4 lg:right-4 lg:scale-125"
+          href={selectedProject.link}
+          alt={`${texts.projects.altProjects} ${selectedProject.title}`}
+        />
+      )}
 
       <div className="p-bg-lines h-full w-full">
         <div className="p-bg-lines relative flex h-full w-full flex-col items-center justify-around">
