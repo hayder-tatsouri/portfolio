@@ -44,7 +44,7 @@ async function getAccessToken(): Promise<string | null> {
         client_id: clientId,
         client_secret: clientSecret,
       }),
-      signal: AbortSignal.timeout(3000),
+      signal: AbortSignal.timeout(1000),
     });
   } catch (error) {
     console.error("OpenSky token request failed; using anonymous access:", error);
@@ -87,7 +87,7 @@ async function fetchAdsbFallback(
   const url = `${ADSB_FALLBACK_URL}/${centerLat}/lon/${centerLon}/dist/250`;
   const res = await fetch(url, {
     headers: { "User-Agent": "portfolio-app" },
-    signal: AbortSignal.timeout(10000),
+    signal: AbortSignal.timeout(3000),
     next: { revalidate: 30 },
   });
 
@@ -144,7 +144,7 @@ export async function GET(request: NextRequest) {
     try {
       const res = await fetch(openSkyUrl, {
         headers,
-        signal: AbortSignal.timeout(10000),
+        signal: AbortSignal.timeout(3000),
         next: { revalidate: 30 },
       });
       console.log(`[OpenSky] states fetch returned status ${res.status}`);
@@ -158,7 +158,7 @@ export async function GET(request: NextRequest) {
     return { res: fallback, status: fallback.status };
   };
 
-  const MAX_ATTEMPTS = 2;
+  const MAX_ATTEMPTS = 1;
 
   try {
     for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
