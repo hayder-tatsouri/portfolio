@@ -3,7 +3,7 @@
  * @type Page
  */
 
-import { IParallax } from "@react-spring/parallax";
+import { IParallax, ParallaxLayer } from "@react-spring/parallax";
 import { RefObject } from "react";
 import BackgroundLayer from "./components/BackgroundLayer";
 import Name from "./components/Name";
@@ -64,6 +64,16 @@ function Hero({ parallaxRef, skillsOffset = 4 }: Props) {
 
       <LangSwitch speed={-2.2} />
       {/* <DarkSwitch speed={-2.7} /> */}
+
+      <ParallaxLayer
+        offset={0}
+        speed={-1.5}
+        className="pointer-events-none flex justify-center pt-24"
+      >
+        <p className="text-sm text-blue-9/80">
+          Somewhere above you, a plane is on its way.
+        </p>
+      </ParallaxLayer>
 
       {/* Hi */}
       <Name

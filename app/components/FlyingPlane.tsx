@@ -184,7 +184,6 @@ function FlyingPlane() {
             <div className="plane-label">{flight.callsign}</div>
             <div className="plane-tooltip">
               <span className="plane-tooltip-callsign">{flight.callsign}</span>
-              <span className="plane-tooltip-detail">{flight.originCountry}</span>
               {flight.altitude && (
                 <span className="plane-tooltip-detail">
                   Alt: {Math.round(flight.altitude).toLocaleString()}m
