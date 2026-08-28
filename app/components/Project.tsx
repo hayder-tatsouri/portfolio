@@ -16,12 +16,9 @@ import { Ref } from "react";
 
 import projectsFr from "../../lang/data-projects-fr";
 import projectsEn from "../../lang/data-projects-en";
-
-
 import githubBadge from "../../public/img/social_media/github-badge.svg";
 import { useLanguage } from "../contexts/language-context";
 
-// Propriétés
 type Props = {
   ref?: Ref<HTMLDivElement>;
   id: number;
@@ -29,17 +26,9 @@ type Props = {
 };
 
 function Project({ ref, id, className }: Props) {
-
   const { language, texts } = useLanguage();
-
-  let projects;
-  if (language === "fr") {
-    projects = projectsFr;
-  } else if (language === "en") {
-    projects = projectsEn;
-  }
-  
-  const selectedProject = projects?.find((project) => project.id === id);
+  const projects = language === "fr" ? projectsFr : projectsEn;
+  const selectedProject = projects.find((project) => project.id === id);
   const bg_col = selectedProject?.color ?? "#000000";
 
   const darkenColor = (color: string, percent: number) => {
@@ -50,9 +39,7 @@ function Project({ ref, id, className }: Props) {
     const newR = Math.floor(r * (1 - percent));
     const newG = Math.floor(g * (1 - percent));
     const newB = Math.floor(b * (1 - percent));
-    return `#${((1 << 24) | (newR << 16) | (newG << 8) | newB)
-      .toString(16)
-      .slice(1)}`;
+    return `#${((1 << 24) | (newR << 16) | (newG << 8) | newB).toString(16).slice(1)}`;
   };
 
   const darkenedColor = darkenColor(bg_col, 0.2);
@@ -77,44 +64,38 @@ function Project({ ref, id, className }: Props) {
         />
       )}
 
-      <div className="p-bg-lines h-full w-full">
-        <div className="p-bg-lines relative flex h-full w-full flex-col items-center justify-around">
-          <span
-            className={cn(
-              "z-10 text-center text-2xl text-white-1 lg:text-4xl",
-              fontJersey15.className,
-            )}
-          >
-            {selectedProject?.title}
-          </span>
-
-          <div className="flex h-full flex-col items-center justify-evenly gap-12 md:h-auto md:flex-row lg:flex-col">
-            <Link
-              href={`/projects/${id}`}
+      <Link href={`/projects/${id}`} className="relative z-10 block w-full">
+        <div className="p-bg-lines h-full w-full">
+          <div className="p-bg-lines relative flex h-full w-full flex-col items-center justify-around">
+            <span
               className={cn(
-                "relative flex aspect-[1920/1080] w-64 items-center justify-center overflow-hidden rounded-lg border border-blue-9 transition-all duration-0 lg:w-80 lg:duration-300 lg:group-hover:scale-110",
+                "z-10 text-center text-2xl text-white-1 lg:text-4xl",
+                fontJersey15.className,
               )}
             >
-              <Image
-                src={selectedProject?.image_path ?? ""}
-                alt={`${texts.projects.altProjects} ${selectedProject?.title}`}
-                className={cn(
-                  "absolute inset-0 duration-700",
-                  "h-full w-full object-cover",
-                )}
-              ></Image>
+              {selectedProject?.title}
+            </span>
 
-              <span className="absolute z-20 mb-3 self-end rounded-md border border-blue-3/70 bg-blue-9/80 px-4 py-2 text-sm font-semibold text-white-1 md:hidden">
-                {texts.projects.viewDetails}
-              </span>
-            </Link>
+            <div className="flex h-full flex-col items-center justify-evenly gap-12 md:h-auto md:flex-row lg:flex-col">
+              <div className="relative flex aspect-[1920/1080] w-64 items-center justify-center overflow-hidden rounded-lg border border-blue-9 transition-all duration-0 lg:w-80 lg:duration-300 lg:group-hover:scale-110">
+                <Image
+                  src={selectedProject?.image_path ?? ""}
+                  alt={`${texts.projects.altProjects} ${selectedProject?.title}`}
+                  className="absolute inset-0 h-full w-full object-cover duration-700"
+                />
 
-            <p className="mx-4 hidden w-1/3 rounded-md bg-[#00000033] p-2 text-center text-sm md:inline-block lg:w-auto lg:text-base">
-              {selectedProject?.description ?? texts.projects.noDescription}
-            </p>
+                <span className="absolute z-20 mb-3 self-end rounded-md border border-blue-3/70 bg-blue-9/80 px-4 py-2 text-sm font-semibold text-white-1 md:hidden">
+                  {texts.projects.viewDetails}
+                </span>
+              </div>
+
+              <p className="mx-4 hidden w-1/3 rounded-md bg-[#00000033] p-2 text-center text-sm md:inline-block lg:w-auto lg:text-base">
+                {selectedProject?.description ?? texts.projects.noDescription}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }
