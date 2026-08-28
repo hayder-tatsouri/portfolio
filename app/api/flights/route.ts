@@ -15,6 +15,7 @@ export const maxDuration = 30;
 
 const TOKEN_URL =
   "https://auth.opensky-network.org/auth/realms/opensky-network/protocol/openid-connect/token";
+const ADSB_FALLBACK_URL = "https://api.adsb.lol/v2/lat";
 
 // Module-level cache — persists across requests as long as the server process is alive.
 let cachedToken: string | null = null;
@@ -75,6 +76,52 @@ function describeCause(cause: unknown): string {
   return String(cause);
 }
 
+async function fetchAdsbFallback(
+  lamin: string,
+  lomin: string,
+  lamax: string,
+  lomax: string,
+): Promise<Response> {
+  const centerLat = (Number(lamin) + Number(lamax)) / 2;
+  const centerLon = (Number(lomin) + Number(lomax)) / 2;
+  const url = `${ADSB_FALLBACK_URL}/${centerLat}/lon/${centerLon}/dist/250`;
+  const res = await fetch(url, {
+    headers: { "User-Agent": "portfolio-app" },
+    signal: AbortSignal.timeout(10000),
+    next: { revalidate: 30 },
+  });
+
+  if (!res.ok) return res;
+
+  const data = await res.json();
+  const states = (data.ac ?? [])
+    .filter((aircraft: { flight?: string; lat?: number; lon?: number }) =>
+      aircraft.flight?.trim() && aircraft.lat !== null && aircraft.lon !== null,
+    )
+    .map((aircraft: {
+      flight: string;
+      lat: number;
+      lon: number;
+      alt_baro?: number | string | null;
+      gs?: number | null;
+      track?: number | null;
+    }) => [
+      null,
+      aircraft.flight.trim(),
+      "Unknown",
+      null,
+      null,
+      aircraft.lon,
+      aircraft.lat,
+      typeof aircraft.alt_baro === "number" ? aircraft.alt_baro * 0.3048 : null,
+      false,
+      typeof aircraft.gs === "number" ? aircraft.gs * 0.514444 : null,
+      aircraft.track ?? null,
+    ]);
+
+  return NextResponse.json({ time: data.now, states });
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const lamin = searchParams.get("lamin") || "30";
@@ -94,13 +141,21 @@ export async function GET(request: NextRequest) {
       console.error("[OpenSky] NO TOKEN - env vars likely missing in Vercel!");
     }
 
-    const res = await fetch(openSkyUrl, {
-      headers,
-      signal: AbortSignal.timeout(15000),
-      next: { revalidate: 30 },
-    });
-    console.log(`[OpenSky] states fetch returned status ${res.status}`);
-    return { res, status: res.status };
+    try {
+      const res = await fetch(openSkyUrl, {
+        headers,
+        signal: AbortSignal.timeout(10000),
+        next: { revalidate: 30 },
+      });
+      console.log(`[OpenSky] states fetch returned status ${res.status}`);
+      if (res.ok) return { res, status: res.status };
+    } catch (error) {
+      console.error("[OpenSky] states request failed; trying ADS-B fallback:", error);
+    }
+
+    const fallback = await fetchAdsbFallback(lamin, lomin, lamax, lomax);
+    console.log(`[ADSB] fallback returned status ${fallback.status}`);
+    return { res: fallback, status: fallback.status };
   };
 
   const MAX_ATTEMPTS = 2;
