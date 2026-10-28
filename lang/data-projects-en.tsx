@@ -42,8 +42,8 @@ import PlanesModelsImg from "../public/img/projects/aero/planes_models.png";
 import RCPlaneImg from "../public/img/projects/aero/rc_plane.jpg";
 import LineFollowerImg from "../public/img/projects/Maze&Line_Follower/line_follower.jpg";
 import LineFollowerPCBImg from "../public/img/projects/Maze&Line_Follower/line_follower_pcb.jpg";
-import MazeImg from "../public/img/projects/Maze&Line_Follower/maze.jpg";
-import MazeRobotImg from "../public/img/projects/Maze&Line_Follower/maze_robot.png";
+import MazeImg from "../public/img/projects/Maze&Line_Follower/maze_v_2.0_soldering.png";
+import MazeRobotImg from "../public/img/projects/Maze&Line_Follower/maze_v_2.0.png";
 
 
 
