@@ -154,8 +154,23 @@ const projects = [
     tech: ["Arduino", "ESP32", "IR Sensors", "Ultrasonic Sensors", "DC Motors", "PID Control", "C/C++", "Embedded Systems"],
     demo: "",
   },
+  
   {
     id: 6,
+    title: "RoboFleet",
+    description:
+      "Multi-robot outdoor navigation and AI-driven fleet coordination — a simulation and control platform for a fleet of autonomous security robots.",
+    detailed_description:
+      "During my internship at Enova Robotics, I built a simulation and control platform for a fleet of autonomous security robots. Instead of testing in a generic empty world, I recreated Novation City / Technopôle de Sousse, Enova's actual site, using real building and road data from OpenStreetMap so the robots patrol a digital twin of the ground they're meant to guard, using the actual robot model Enova operates in the field.The project has three main pieces: autonomous navigation built on sensor fusion, combining IMU, GPS, LiDAR, and wheel odometry through an EKF for stable localization, feeding into a full Nav2 stack with layered costmaps for path planning and obstacle avoidance; a multi-robot setup where several robots run simultaneously in the same world, each with its own independent navigation stack; and a multi-agent layer, where each agent has its own dedicated skills and tools (task allocation, collision prediction, patrol coordination) exposed through an MCP server, so the fleet can be coordinated through an AI agent and a live dashboard.",
+    image_path: RoboFleetReal,
+    images: [RoboFleetReal,RoboFleetRobots,RoboFleetGZMap,RoboFleetMapImg,RoboFleetRviz],
+    link: "",
+    color: "#67aa69",
+    tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Multi-Agent Systems", "LangGraphs"],
+    demo: "",
+  },
+  {
+    id: 7,
     title: "TaskVision",
     description:
       "A full-stack project management application with an Angular + Tailwind frontend, a Node.js/Express + Sequelize/MySQL backend, and Docker orchestration.",
@@ -172,20 +187,6 @@ const projects = [
     link: "https://github.com/hayder-tatsouri/_taskvision_",
     color: "#4f46e5",
     tech: ["Angular", "Tailwind", "Node.js", "Express", "MySQL", "Sequelize", "Docker", "JWT"],
-    demo: "",
-  },
-  {
-    id: 7,
-    title: "RoboFleet",
-    description:
-      "Multi-robot outdoor navigation and AI-driven fleet coordination — a simulation and control platform for a fleet of autonomous security robots.",
-    detailed_description:
-      "During my internship at Enova Robotics, I built a simulation and control platform for a fleet of autonomous security robots. Instead of testing in a generic empty world, I recreated Novation City / Technopôle de Sousse, Enova's actual site, using real building and road data from OpenStreetMap so the robots patrol a digital twin of the ground they're meant to guard, using the actual robot model Enova operates in the field.The project has three main pieces: autonomous navigation built on sensor fusion, combining IMU, GPS, LiDAR, and wheel odometry through an EKF for stable localization, feeding into a full Nav2 stack with layered costmaps for path planning and obstacle avoidance; a multi-robot setup where several robots run simultaneously in the same world, each with its own independent navigation stack; and a multi-agent layer, where each agent has its own dedicated skills and tools (task allocation, collision prediction, patrol coordination) exposed through an MCP server, so the fleet can be coordinated through an AI agent and a live dashboard.",
-    image_path: RoboFleetReal,
-    images: [RoboFleetReal,RoboFleetRobots,RoboFleetGZMap,RoboFleetMapImg,RoboFleetRviz],
-    link: "",
-    color: "#7c3aed",
-    tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Multi-Agent Systems", "LangGraphs"],
     demo: "",
   },
   {
