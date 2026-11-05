@@ -30,6 +30,21 @@ import RoboFleetRviz from "../public/img/projects/robo_fleet/rviz.png";
 import RoboFleetRobots from "../public/img/projects/robo_fleet/robots.png";
 import RoboFleetGZMap from "../public/img/projects/robo_fleet/gz_map.png";
 import RoboFleetReal from "../public/img/projects/robo_fleet/pguard_real.jpg";
+import KynoraArm from "../public/img/projects/kynora/SO101_arm.png";
+import KynoraSim from "../public/img/projects/kynora/so101_moveit_isaacsim.png";
+import LineFollowerImg from "../public/img/projects/Maze&Line_Follower/line_follower.jpg";
+import LineFollowerPCBImg from "../public/img/projects/Maze&Line_Follower/line_follower_pcb.jpg";
+import MicroFarrV1Img from "../public/img/projects/Maze&Line_Follower/maze_robot_v1.0.png";
+import MicroFarrV1CompImg from "../public/img/projects/Maze&Line_Follower/maze_v1.0_in_competiton.jpg";
+import MicroFarrV2Img from "../public/img/projects/Maze&Line_Follower/maze_v_2.0.png";
+import MicroFarrV2SolderImg from "../public/img/projects/Maze&Line_Follower/maze_v_2.0_soldering.png";
+import MicroFarrInMazeImg from "../public/img/projects/Maze&Line_Follower/micro_Farr_InMaze.jpg";
+import DronePosteMain from "../public/img/projects/drone_poste/drone_ProImg.png";
+import DronePosteDrone from "../public/img/projects/drone_poste/drone.jpg";
+import DronePosteDrone2 from "../public/img/projects/drone_poste/drone2.jpg";
+import DronePosteMap from "../public/img/projects/drone_poste/map_interface.jpg";
+import DronePosteVideo from "../public/img/projects/drone_poste/video_interface.jpg";
+import DronePosteWiring from "../public/img/projects/drone_poste/wiring_diagam_drone poste.png";
 import ARECertifImg from "../public/img/projects/ARE/are_certif.png";
 import RoboCupImg from "../public/img/projects/ARE/robocup.jpg";
 import LaunchImg from "../public/img/projects/ARE/launch__day.jpg";
@@ -40,10 +55,6 @@ import AerodynamiqueImg from "../public/img/projects/aero/aerodynamique.png";
 import PlaneFoamImg from "../public/img/projects/aero/plane_foam.jpg";
 import PlanesModelsImg from "../public/img/projects/aero/planes_models.png";
 import RCPlaneImg from "../public/img/projects/aero/rc_plane.jpg";
-import LineFollowerImg from "../public/img/projects/Maze&Line_Follower/line_follower.jpg";
-import LineFollowerPCBImg from "../public/img/projects/Maze&Line_Follower/line_follower_pcb.jpg";
-import MazeImg from "../public/img/projects/Maze&Line_Follower/maze.jpg";
-import MazeRobotImg from "../public/img/projects/Maze&Line_Follower/maze_robot.png";
 
 const projects = [
   {
@@ -109,6 +120,90 @@ const projects = [
   },
   {
     id: 4,
+    title: "dronePoste",
+    description:
+      "Un quadricoptère doté d'un Raspberry Pi Zero 2 W comme ordinateur de bord, qui crée son propre hotspot Wi-Fi et héberge une station sol web : caméra en direct, carte hors ligne de la Tunisie et commandes de vol de base, sans internet ni SSH. Réalisé avec La Poste Tunisienne.",
+    detailed_description:
+      "dronePoste est un quadricoptère doté d'un Raspberry Pi Zero 2 W comme ordinateur de bord, réalisé avec La Poste Tunisienne au sein de l'ENSI Robotics Association (ERA). Le Pi crée son propre hotspot Wi-Fi et sert une station sol web : un téléphone ou un ordinateur peut afficher la caméra en direct (MJPEG, 640x480, 15 fps) avec un indicateur d'attitude roulis/tangage, suivre le drone sur une carte vectorielle hors ligne de la Tunisie (position, cap, trajectoire, point de départ) et envoyer des commandes : décollage à une altitude choisie, retour au point de départ, atterrissage et désarmement. La télémétrie (batterie, satellites et fix GPS, altitude, vitesse sol, mode de vol, état armé, état de la liaison) est poussée par WebSocket à 5 Hz. Des règles de sécurité sont appliquées côté serveur : le décollage exige une position globale valide et le mode GUIDED, il est refusé en vol, le désarmement est refusé en l'air et l'altitude de décollage est plafonnée. Le matériel comprend un contrôleur de vol SpeedyBee F405 AIO sous ArduPilot (ArduCopter), une caméra Raspberry Pi Camera Module 3, un châssis F330 avec quatre moteurs brushless 1400 kV, un GPS M6N et un compas GY-271. Côté logiciel : une application FastAPI utilisant MAVSDK-Python via MAVLink 2 (UART), picamera2, Leaflet avec PMTiles pour la carte hors ligne, et NetworkManager et systemd pour le hotspot et le service.",
+    image_path: DronePosteMain,
+    images: [
+      DronePosteMain,
+      DronePosteDrone,
+      DronePosteDrone2,
+      DronePosteVideo,
+      DronePosteMap,
+      DronePosteWiring,
+    ],
+    videoId: "Cy97sNL5oDs",
+    link: "https://github.com/hayder-tatsouri/drone_poste",
+    color: "#ca8a04",
+    tech: ["ArduPilot", "Raspberry Pi Zero 2 W", "FastAPI", "MAVSDK", "MAVLink", "WebSockets", "Leaflet", "PMTiles", "picamera2", "systemd"],
+    demo: "",
+  },
+  {
+    id: 5,
+    title: "Micro Farr",
+    description:
+      "Micro Farr : micro mouses autonomes résolveurs de labyrinthe, v1.0 avec capteurs à ultrasons et v2.0 plus petit, sous FreeRTOS, avec fusion IMU et capteurs ToF.",
+    detailed_description:
+      "Micro Farr est un micro mouse autonome résolveur de labyrinthe que j'ai conçu, construit et programmé pour des compétitions nationales de robotique. Il existe deux versions. Le Micro Mouse v1.0 utilise des capteurs à ultrasons pour mesurer les distances, associés à une logique de planification de trajet pour explorer, cartographier et résoudre des labyrinthes inconnus. Le Micro Mouse v2.0 est une refonte complète : il est plus petit, fonctionne sous FreeRTOS et remplace les capteurs à ultrasons par une IMU et des capteurs ToF (time-of-flight). La fusion de tous ces capteurs donne de bien meilleurs résultats : mesures de distance plus précises, virages plus stables et trajectoires plus droites dans le labyrinthe. Ce projet a renforcé mes compétences en systèmes embarqués, firmware RTOS, fusion de capteurs, contrôle moteur, réglage PID, soudure de PCB et conception d'algorithmes.",
+    image_path: MicroFarrV2Img,
+    images: [
+      MicroFarrInMazeImg,
+      MicroFarrV2Img,
+      MicroFarrV2SolderImg,
+      MicroFarrV1Img,
+      MicroFarrV1CompImg,
+    ],
+    link: "https://github.com/hayder-tatsouri/Maze-solver-robot",
+    color: "#dc2626",
+    tech: ["Arduino", "ESP32", "FreeRTOS", "IMU", "ToF Sensors", "Ultrasonic Sensors", "Sensor Fusion", "PID Control", "C/C++", "Embedded Systems"],
+    demo: "",
+  },
+  {
+    id: 6,
+    title: "Line Follower Robot",
+    description:
+      "Un robot suiveur de ligne autonome conçu, construit et programmé de zéro pour des compétitions nationales de robotique.",
+    detailed_description:
+      "Dans le cadre du club de robotique, j'ai conçu, construit et programmé un robot suiveur de ligne autonome pour des compétitions nationales de robotique. Il a été développé de A à Z : PCB sur mesure, assemblage mécanique, intégration électronique, calibration des capteurs et logiciel embarqué. Il utilise des capteurs infrarouges et des algorithmes de contrôle PID pour suivre avec précision des pistes à grande vitesse. Ce projet a renforcé mes compétences en systèmes embarqués, programmation de microcontrôleurs, contrôle moteur, réglage PID et intégration de systèmes robotiques.",
+    image_path: LineFollowerPCBImg,
+    images: [LineFollowerPCBImg, LineFollowerImg],
+    link: "",
+    color: "#ea580c",
+    tech: ["Arduino", "ESP32", "IR Sensors", "DC Motors", "PID Control", "Custom PCB", "C/C++", "Embedded Systems"],
+    demo: "",
+  },
+  {
+    id: 7,
+    title: "RoboFleet",
+    description:
+      "Navigation outdoor multi-robots et coordination de flotte pilotée par IA — une plateforme de simulation et de contrôle pour une flotte de robots de sécurité autonomes.",
+    detailed_description:
+      "Pendant mon stage chez Enova Robotics, j'ai construit une plateforme de simulation et de contrôle pour une flotte de robots de sécurité autonomes. Plutôt que de tester dans un monde vide générique, j'ai recréé Novation City / Technopôle de Sousse — le site réel d'Enova — en extrayant les données réelles des bâtiments et routes d'OpenStreetMap pour que les robots patrouillent un jumeau numérique fidèle du terrain qu'ils sont censés garder. Le projet s'est articulé autour de trois axes principaux : la navigation autonome avec un stack Nav2 complet utilisant Regulated Pure Pursuit et des costmaps multicouches avec évitement d'obstacles LiDAR ; une architecture multi-robots où plusieurs robots opèrent simultanément dans le même monde, chacun avec son propre stack de navigation indépendant ; et une couche multi-agents — un serveur MCP exposant des outils d'allocation de tâches, de prédiction de collisions et de commandes en langage naturel à un LLM (Claude), permettant de coordonner et surveiller la flotte via un agent IA et un dashboard en direct.",
+    image_path: RoboFleetReal,
+    images: [RoboFleetReal,RoboFleetRobots,RoboFleetGZMap,RoboFleetMapImg,RoboFleetRviz],
+    link: "",
+    color: "#7c3aed",
+    tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Claude API"],
+    demo: "",
+  },
+  {
+    id: 8,
+    title: "Kynora",
+    description:
+      "Une plateforme de simulation et de contrôle du bras robotique SO-ARM101 avec ROS 2 Jazzy, MoveIt 2 et NVIDIA Isaac Sim. Je travaille actuellement sur son déploiement sur le bras réel.",
+    detailed_description:
+      "Kynora est une plateforme de simulation et de contrôle du bras robotique SO-ARM101, construite sur ROS 2 Jazzy, MoveIt 2 et NVIDIA Isaac Sim. Elle s'appuie sur l'intégration open source SO-ARM101 MoveIt Isaac Sim de MuammerBay, que j'ai migrée vers ROS 2 Jazzy et étendue avec topic_based_ros2_control. MoveIt 2 gère la cinématique inverse, la planification de trajectoires avec évitement de collisions et l'exécution des trajectoires articulaires, tandis qu'Isaac Sim fournit la simulation physique. Les deux communiquent via des topics ROS 2 : MoveIt envoie les commandes articulaires et Isaac Sim publie les états des articulations, grâce au plugin TopicBasedSystem de ros2_control, RViz et Isaac Sim étant utilisés ensemble pour la visualisation. L'étape de simulation est terminée. Je travaille actuellement sur le déploiement de la même chaîne de contrôle sur le vrai SO-ARM101, afin que les trajectoires MoveIt s'exécutent sur le matériel. La prochaine étape prévue est la manipulation autonome par apprentissage par renforcement : détecter et approcher un objet, planifier une prise et le déplacer.",
+    image_path: KynoraArm,
+    images: [KynoraArm, KynoraSim],
+    link: "https://github.com/hayder-tatsouri/SO-ARM101_MoveIt_IsaacSim_jazzy",
+    color: "#7c3aed",
+    tech: ["ROS 2 Jazzy", "MoveIt 2", "NVIDIA Isaac Sim", "ros2_control", "RViz", "URDF/Xacro", "Python", "C++"],
+    demo: "",
+  },
+  {
+    id: 9,
     title: "ProdTrack",
     description:
       "Un système de supervision industrielle complet pour ateliers textiles, reliant le terrain (machines, opérateurs) à la direction (managers, rapports) grâce à une couche intelligente de Machine Learning et d'IA générative.",
@@ -127,26 +222,7 @@ const projects = [
     demo: "",
   },
   {
-    id: 5,
-    title: "Maze Solver & Line Follower Robots",
-    description:
-      "Robots autonomes Suiveur de Ligne et Solveur de Labyrinthe, conçus, construits et programmés de zéro pour des compétitions nationales de robotique.",
-    detailed_description:
-      "Dans le cadre du club de robotique, j'ai conçu, construit et programmé des robots autonomes Suiveur de Ligne et Solveur de Labyrinthe pour des compétitions nationales de robotique. Les robots ont été développés de zéro, incluant l'assemblage mécanique, l'intégration électronique, l'étalonnage des capteurs et le développement du logiciel embarqué. Le robot Suiveur de Ligne utilisait des capteurs infrarouges et des algorithmes de contrôle pour suivre avec précision des pistes à haute vitesse, tandis que le Solveur de Labyrinthe combinait des capteurs de distance avec une logique de planification de chemin pour explorer, cartographier et résoudre de manière autonome des labyrinthes inconnus dans le trajet le plus court possible. Ces projets ont renforcé mes compétences en systèmes embarqués, programmation de microcontrôleurs, fusion de capteurs, contrôle moteur, réglage PID, conception d'algorithmes et intégration de systèmes robotiques, tout en offrant une expérience pratique de préparation de robots pour des environnements compétitifs.",
-    image_path: MazeRobotImg,
-    images: [
-      MazeRobotImg,
-      MazeImg,
-      LineFollowerPCBImg,
-      LineFollowerImg,
-    ],
-    link: "https://github.com/hayder-tatsouri/Maze-solver-robot",
-    color: "#dc2626",
-    tech: ["Arduino", "ESP32", "IR Sensors", "Ultrasonic Sensors", "DC Motors", "PID Control", "C/C++", "Embedded Systems"],
-    demo: "",
-  },
-  {
-    id: 6,
+    id: 10,
     title: "TaskVision",
     description:
       "Une application full-stack de gestion de projet avec un frontend Angular + Tailwind, un backend Node.js/Express + Sequelize/MySQL et une orchestration Docker.",
@@ -166,21 +242,7 @@ const projects = [
     demo: "",
   },
   {
-    id: 7,
-    title: "RoboFleet",
-    description:
-      "Navigation outdoor multi-robots et coordination de flotte pilotée par IA — une plateforme de simulation et de contrôle pour une flotte de robots de sécurité autonomes.",
-    detailed_description:
-      "Pendant mon stage chez Enova Robotics, j'ai construit une plateforme de simulation et de contrôle pour une flotte de robots de sécurité autonomes. Plutôt que de tester dans un monde vide générique, j'ai recréé Novation City / Technopôle de Sousse — le site réel d'Enova — en extrayant les données réelles des bâtiments et routes d'OpenStreetMap pour que les robots patrouillent un jumeau numérique fidèle du terrain qu'ils sont censés garder. Le projet s'est articulé autour de trois axes principaux : la navigation autonome avec un stack Nav2 complet utilisant Regulated Pure Pursuit et des costmaps multicouches avec évitement d'obstacles LiDAR ; une architecture multi-robots où plusieurs robots opèrent simultanément dans le même monde, chacun avec son propre stack de navigation indépendant ; et une couche multi-agents — un serveur MCP exposant des outils d'allocation de tâches, de prédiction de collisions et de commandes en langage naturel à un LLM (Claude), permettant de coordonner et surveiller la flotte via un agent IA et un dashboard en direct.",
-    image_path: RoboFleetReal,
-    images: [RoboFleetReal,RoboFleetRobots,RoboFleetGZMap,RoboFleetMapImg,RoboFleetRviz],
-    link: "",
-    color: "#7c3aed",
-    tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Claude API"],
-    demo: "",
-  },
-  {
-    id: 8,
+    id: 11,
     title: "ENSI Robotics Association",
     description:
       "En tant que membre du bureau étendu de l'Association Robotique de l'ENSI, j'ai contribué à l'organisation et au soutien d'événements techniques qui promeuvent la robotique et l'innovation au sein de l'université et à travers la Tunisie.",
@@ -194,7 +256,7 @@ const projects = [
     demo: "",
   },
   {
-    id: 9,
+    id: 12,
     title: "ARE Aeronautics Division",
     description:
       "En tant que responsable aéronautique de l'ARE (Association de Robotique de l'ENSI), j'ai dirigé la division aéronautique, organisé des ateliers techniques et coordonné des projets étudiants autour d'avions RC et de planeurs.",

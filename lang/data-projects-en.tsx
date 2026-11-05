@@ -26,6 +26,21 @@ import RoboFleetRviz from "../public/img/projects/robo_fleet/rviz.png";
 import RoboFleetRobots from "../public/img/projects/robo_fleet/robots.png";
 import RoboFleetGZMap from "../public/img/projects/robo_fleet/gz_map.png";
 import RoboFleetReal from "../public/img/projects/robo_fleet/pguard_real.jpg";
+import KynoraArm from "../public/img/projects/kynora/SO101_arm.png";
+import KynoraSim from "../public/img/projects/kynora/so101_moveit_isaacsim.png";
+import LineFollowerImg from "../public/img/projects/Maze&Line_Follower/line_follower.jpg";
+import LineFollowerPCBImg from "../public/img/projects/Maze&Line_Follower/line_follower_pcb.jpg";
+import MicroFarrV1Img from "../public/img/projects/Maze&Line_Follower/maze_robot_v1.0.png";
+import MicroFarrV1CompImg from "../public/img/projects/Maze&Line_Follower/maze_v1.0_in_competiton.jpg";
+import MicroFarrV2Img from "../public/img/projects/Maze&Line_Follower/maze_v_2.0.png";
+import MicroFarrV2SolderImg from "../public/img/projects/Maze&Line_Follower/maze_v_2.0_soldering.png";
+import MicroFarrInMazeImg from "../public/img/projects/Maze&Line_Follower/micro_Farr_InMaze.jpg";
+import DronePosteMain from "../public/img/projects/drone_poste/drone_ProImg.png";
+import DronePosteDrone from "../public/img/projects/drone_poste/drone.jpg";
+import DronePosteDrone2 from "../public/img/projects/drone_poste/drone2.jpg";
+import DronePosteMap from "../public/img/projects/drone_poste/map_interface.jpg";
+import DronePosteVideo from "../public/img/projects/drone_poste/video_interface.jpg";
+import DronePosteWiring from "../public/img/projects/drone_poste/wiring_diagam_drone poste.png";
 
 
 
@@ -40,10 +55,6 @@ import AerodynamiqueImg from "../public/img/projects/aero/aerodynamique.png";
 import PlaneFoamImg from "../public/img/projects/aero/plane_foam.jpg";
 import PlanesModelsImg from "../public/img/projects/aero/planes_models.png";
 import RCPlaneImg from "../public/img/projects/aero/rc_plane.jpg";
-import LineFollowerImg from "../public/img/projects/Maze&Line_Follower/line_follower.jpg";
-import LineFollowerPCBImg from "../public/img/projects/Maze&Line_Follower/line_follower_pcb.jpg";
-import MazeImg from "../public/img/projects/Maze&Line_Follower/maze_v_2.0_soldering.png";
-import MazeRobotImg from "../public/img/projects/Maze&Line_Follower/maze_v_2.0.png";
 
 
 
@@ -113,6 +124,90 @@ const projects = [
   },
   {
     id: 4,
+    title: "dronePoste",
+    description:
+      "A quadcopter with a Raspberry Pi Zero 2 W companion computer that hosts its own Wi-Fi hotspot and web ground station: live camera, offline map of Tunisia, and basic flight commands, with no internet or SSH needed. Built with La Poste Tunisienne.",
+    detailed_description:
+      "dronePoste is a quadcopter with a Raspberry Pi Zero 2 W as its companion computer, carried out with La Poste Tunisienne and built within the ENSI Robotics Association (ERA). The Pi creates its own Wi-Fi hotspot and serves a web ground station, so a phone or laptop can view the live camera (MJPEG, 640x480, 15 fps) with a roll/pitch attitude indicator, track the drone on an offline vector map of Tunisia (position, heading, flight trail, home marker), and send commands: take off to a chosen altitude, return home, land, and disarm. Telemetry (battery, GPS satellites and fix, altitude, ground speed, flight mode, armed state, link status) is pushed over WebSocket at 5 Hz. Safety rules are enforced server-side: takeoff requires a valid global position and GUIDED mode, takeoff is refused when airborne, disarm is refused in the air, and takeoff altitude is capped. The hardware is a SpeedyBee F405 AIO flight controller running ArduPilot (ArduCopter), a Raspberry Pi Camera Module 3, an F330 frame with four 1400 kV brushless motors, an M6N GPS and a GY-271 compass. The software is a FastAPI app using MAVSDK-Python over MAVLink 2 (UART), picamera2, Leaflet with PMTiles for the offline map, and NetworkManager and systemd for the hotspot and service.",
+    image_path: DronePosteMain,
+    images: [
+      DronePosteMain,
+      DronePosteDrone,
+      DronePosteDrone2,
+      DronePosteVideo,
+      DronePosteMap,
+      DronePosteWiring,
+    ],
+    videoId: "Cy97sNL5oDs",
+    link: "https://github.com/hayder-tatsouri/drone_poste",
+    color: "#ca8a04",
+    tech: ["ArduPilot", "Raspberry Pi Zero 2 W", "FastAPI", "MAVSDK", "MAVLink", "WebSockets", "Leaflet", "PMTiles", "picamera2", "systemd"],
+    demo: "",
+  },
+  {
+    id: 5,
+    title: "Micro Farr",
+    description:
+      "Micro Farr: autonomous micro mouse maze solvers, v1.0 with ultrasonic sensors and a smaller v2.0 built on FreeRTOS with an IMU and ToF sensor fusion.",
+    detailed_description:
+      "Micro Farr is an autonomous micro mouse maze solver I designed, built and programmed for national robotics competitions. There are two versions. Micro Mouse v1.0 uses ultrasonic sensors for distance measurement together with path-planning logic to explore, map and solve unknown mazes. Micro Mouse v2.0 is a full redesign: it is smaller, runs FreeRTOS, and replaces the ultrasonic sensors with an IMU and ToF (time-of-flight) sensors. Fusing all of these sensors gives much better results: more accurate distance readings, more stable turns and straighter runs through the maze. The project strengthened my skills in embedded systems, RTOS-based firmware, sensor fusion, motor control, PID tuning, PCB soldering and algorithm design.",
+    image_path: MicroFarrV2Img,
+    images: [
+      MicroFarrInMazeImg,
+      MicroFarrV2Img,
+      MicroFarrV2SolderImg,
+      MicroFarrV1Img,
+      MicroFarrV1CompImg,
+    ],
+    link: "https://github.com/hayder-tatsouri/Maze-solver-robot",
+    color: "#dc2626",
+    tech: ["Arduino", "ESP32", "FreeRTOS", "IMU", "ToF Sensors", "Ultrasonic Sensors", "Sensor Fusion", "PID Control", "C/C++", "Embedded Systems"],
+    demo: "",
+  },
+  {
+    id: 6,
+    title: "Line Follower Robot",
+    description:
+      "An autonomous line follower robot designed, built and programmed from scratch for national robotics competitions.",
+    detailed_description:
+      "As part of the robotics club, I designed, built and programmed an autonomous line follower robot for national robotics competitions. It was developed from the ground up, including a custom PCB, mechanical assembly, electronic integration, sensor calibration and embedded software. It uses infrared sensors and PID control algorithms to follow high-speed tracks accurately. The project strengthened my skills in embedded systems, microcontroller programming, motor control, PID tuning and robotics system integration.",
+    image_path: LineFollowerPCBImg,
+    images: [LineFollowerPCBImg, LineFollowerImg],
+    link: "",
+    color: "#ea580c",
+    tech: ["Arduino", "ESP32", "IR Sensors", "DC Motors", "PID Control", "Custom PCB", "C/C++", "Embedded Systems"],
+    demo: "",
+  },
+  {
+    id: 7,
+    title: "RoboFleet",
+    description:
+      "Multi-robot outdoor navigation and AI-driven fleet coordination — a simulation and control platform for a fleet of autonomous security robots.",
+    detailed_description:
+      "During my internship at Enova Robotics, I built a simulation and control platform for a fleet of autonomous security robots. Instead of testing in a generic empty world, I recreated Novation City / Technopôle de Sousse, Enova's actual site, using real building and road data from OpenStreetMap so the robots patrol a digital twin of the ground they're meant to guard, using the actual robot model Enova operates in the field.The project has three main pieces: autonomous navigation built on sensor fusion, combining IMU, GPS, LiDAR, and wheel odometry through an EKF for stable localization, feeding into a full Nav2 stack with layered costmaps for path planning and obstacle avoidance; a multi-robot setup where several robots run simultaneously in the same world, each with its own independent navigation stack; and a multi-agent layer, where each agent has its own dedicated skills and tools (task allocation, collision prediction, patrol coordination) exposed through an MCP server, so the fleet can be coordinated through an AI agent and a live dashboard.",
+    image_path: RoboFleetReal,
+    images: [RoboFleetReal,RoboFleetRobots,RoboFleetGZMap,RoboFleetMapImg,RoboFleetRviz],
+    link: "",
+    color: "#67aa69",
+    tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Multi-Agent Systems", "LangGraphs"],
+    demo: "",
+  },
+  {
+    id: 8,
+    title: "Kynora",
+    description:
+      "A simulation and control platform for the SO-ARM101 robotic arm using ROS 2 Jazzy, MoveIt 2 and NVIDIA Isaac Sim. Currently working on deploying it on the real arm.",
+    detailed_description:
+      "Kynora is a simulation and control platform for the SO-ARM101 robotic arm, built on ROS 2 Jazzy, MoveIt 2 and NVIDIA Isaac Sim. It builds on the open-source SO-ARM101 MoveIt Isaac Sim integration by MuammerBay, which I migrated to ROS 2 Jazzy and extended with topic_based_ros2_control. MoveIt 2 handles inverse kinematics, collision-aware trajectory planning and joint trajectory execution, while Isaac Sim provides the physics-based simulation. The two communicate over ROS 2 topics: MoveIt sends joint commands and Isaac Sim publishes joint states, through the TopicBasedSystem plugin in ros2_control, with RViz and Isaac Sim used together for visualization. The simulation stage is complete. I am currently working on deploying the same control pipeline on the real SO-ARM101, so MoveIt trajectories run on the physical hardware. The next planned stage is autonomous manipulation with reinforcement learning: detecting and approaching an object, planning a grasp and moving it.",
+    image_path: KynoraArm,
+    images: [KynoraArm, KynoraSim],
+    link: "https://github.com/hayder-tatsouri/SO-ARM101_MoveIt_IsaacSim_jazzy",
+    color: "#7c3aed",
+    tech: ["ROS 2 Jazzy", "MoveIt 2", "NVIDIA Isaac Sim", "ros2_control", "RViz", "URDF/Xacro", "Python", "C++"],
+    demo: "",
+  },
+  {
+    id: 9,
     title: "ProdTrack",
     description:
       "A complete industrial supervision system for textile workshops, connecting the shop floor (machines, operators) to management (managers, reports) through an intelligent Machine Learning and generative AI layer.",
@@ -132,45 +227,7 @@ const projects = [
     demo: "",
   },
   {
-    id: 5,
-    title: "Maze Solver & Line Follower Robots",
-    description:
-      "Autonomous Line Follower and Maze Solver robots designed, built, and programmed from scratch for national robotics competitions.",
-    detailed_description:
-      "As part of the robotics club, I designed, built, and programmed autonomous Line Follower and Maze Solver robots for national robotics competitions. The robots were developed from the ground up, including mechanical assembly, electronic integration, sensor calibration, and embedded software development. The Line Follower robot used infrared sensors and control algorithms to accurately follow high-speed tracks, while the Maze Solver robot combined distance sensors with path-planning logic to autonomously explore, map, and solve unknown mazes in the shortest possible route. These projects strengthened my skills in embedded systems, microcontroller programming, sensor fusion, motor control, PID tuning, algorithm design, and robotics system integration, while providing hands-on experience preparing robots for competitive environments.",
-    image_path: MazeRobotImg,
-    images: [
-      MazeRobotImg,
-      MazeImg,
-      LineFollowerPCBImg,
-      LineFollowerImg,
-      
-      
-
-      
-    ],
-    link: "https://github.com/hayder-tatsouri/Maze-solver-robot",
-    color: "#dc2626",
-    tech: ["Arduino", "ESP32", "IR Sensors", "Ultrasonic Sensors", "DC Motors", "PID Control", "C/C++", "Embedded Systems"],
-    demo: "",
-  },
-  
-  {
-    id: 6,
-    title: "RoboFleet",
-    description:
-      "Multi-robot outdoor navigation and AI-driven fleet coordination — a simulation and control platform for a fleet of autonomous security robots.",
-    detailed_description:
-      "During my internship at Enova Robotics, I built a simulation and control platform for a fleet of autonomous security robots. Instead of testing in a generic empty world, I recreated Novation City / Technopôle de Sousse, Enova's actual site, using real building and road data from OpenStreetMap so the robots patrol a digital twin of the ground they're meant to guard, using the actual robot model Enova operates in the field.The project has three main pieces: autonomous navigation built on sensor fusion, combining IMU, GPS, LiDAR, and wheel odometry through an EKF for stable localization, feeding into a full Nav2 stack with layered costmaps for path planning and obstacle avoidance; a multi-robot setup where several robots run simultaneously in the same world, each with its own independent navigation stack; and a multi-agent layer, where each agent has its own dedicated skills and tools (task allocation, collision prediction, patrol coordination) exposed through an MCP server, so the fleet can be coordinated through an AI agent and a live dashboard.",
-    image_path: RoboFleetReal,
-    images: [RoboFleetReal,RoboFleetRobots,RoboFleetGZMap,RoboFleetMapImg,RoboFleetRviz],
-    link: "",
-    color: "#67aa69",
-    tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Multi-Agent Systems", "LangGraphs"],
-    demo: "",
-  },
-  {
-    id: 7,
+    id: 10,
     title: "TaskVision",
     description:
       "A full-stack project management application with an Angular + Tailwind frontend, a Node.js/Express + Sequelize/MySQL backend, and Docker orchestration.",
@@ -190,7 +247,7 @@ const projects = [
     demo: "",
   },
   {
-    id: 8,
+    id: 11,
     title: "ENSI Robotics Association",
     description:
       "As a member of the Extended Board of the ENSI Robotics Association, I contributed to organizing and supporting technical events that promote robotics and innovation within the university and across Tunisia.",
@@ -204,7 +261,7 @@ const projects = [
     demo: "",
   },
   {
-    id: 9,
+    id: 12,
     title: "ARE Aeronautics Division",
     description:
       "As Aeronautics Manager at ARE (Association de Robotique de l'ENSI), I led the aeronautics division, organized technical workshops, and coordinated student projects around RC airplanes and gliders.",
