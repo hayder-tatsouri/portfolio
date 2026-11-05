@@ -14,16 +14,16 @@ import TaskVisionHighchart from "../public/img/projects/taskVision/highchart.jpg
 import TaskVisionClaudeClient from "../public/img/projects/taskVision/claude_desktop_as_client.png";
 import FullSetupImg from "../public/img/projects/fpv_drone/full_steup.jpg";
 import TwoInchDroneImg from "../public/img/projects/fpv_drone/2inch_drone.jpg";
-import FpvImg from "../public/img/projects/fpv_drone/fpv_img.png";
+import PavoPicoImg from "../public/img/projects/fpv_drone/PavoPico.jpg";
 import FpvImgFlying from "../public/img/projects/fpv_drone/fpv_img_flying.png";
 import ProdTrackSystemImg from "../public/img/projects/prodTrack/better_img_for_system.png";
 import ProdTrackDashboardImg from "../public/img/projects/prodTrack/dashboard.png";
 import ProdTrackTaskImg from "../public/img/projects/prodTrack/task_assignment.png";
 import ProdTrackTeamImg from "../public/img/projects/prodTrack/team_image.jpg";
 import ProdTrackTrackingImg from "../public/img/projects/prodTrack/tracking_board.png";
-import RoboFleetMapImg from "../public/img/projects/robo_fleet/map.jpeg";
+import RoboFleetDashboard from "../public/img/projects/robo_fleet/dashboard.png";
 import RoboFleetRviz from "../public/img/projects/robo_fleet/rviz.png";
-import RoboFleetRobots from "../public/img/projects/robo_fleet/robots.png";
+import RoboFleetRobots from "../public/img/projects/robo_fleet/robots_inGazebo.png";
 import RoboFleetGZMap from "../public/img/projects/robo_fleet/gz_map.png";
 import RoboFleetReal from "../public/img/projects/robo_fleet/pguard_real.jpg";
 import KynoraArm from "../public/img/projects/kynora/SO101_arm.png";
@@ -105,14 +105,14 @@ const projects = [
     id: 3,
     title: "2-Inch FPV Drone",
     description:
-      "A 2-inch freestyle quad I built from scratch. It's light, quick, and set up for aggressive flying.",
+      "A 2-inch freestyle quad I built from scratch. It's light, quick, and set up for aggressive flying. I worked on this 2-inch drone and also on the PavoPico drone.",
     detailed_description:
-      "A custom 2-inch FPV drone build focused on compact size and aggressive flying performance. The project covered component selection, frame assembly, soldering, flight controller configuration, and tuning for stable, punchy flight behavior, all packed into a tiny footprint with a full FPV camera and video transmitter setup.",
+      "A custom 2-inch FPV drone build focused on compact size and aggressive flying performance. The project covered component selection, frame assembly, soldering, flight controller configuration, and tuning for stable, punchy flight behavior, all packed into a tiny footprint with a full FPV camera and video transmitter setup. I worked on two FPV builds: this 2-inch drone and the PavoPico drone.",
     image_path: FullSetupImg,
     images: [
       FullSetupImg,
       TwoInchDroneImg,
-      FpvImg,
+      PavoPicoImg,
       FpvImgFlying,
     ],
     videoId: "3WWjgtDNfrI",
@@ -159,7 +159,7 @@ const projects = [
       MicroFarrV1Img,
       MicroFarrV1CompImg,
     ],
-    link: "https://github.com/hayder-tatsouri/Maze-solver-robot",
+    link: "https://github.com/AbdelbakiJeddi/micro_farr/tree/nav_0.2H",
     color: "#dc2626",
     tech: ["Arduino", "ESP32", "FreeRTOS", "IMU", "ToF Sensors", "Ultrasonic Sensors", "Sensor Fusion", "PID Control", "C/C++", "Embedded Systems"],
     demo: "",
@@ -186,7 +186,7 @@ const projects = [
     detailed_description:
       "During my internship at Enova Robotics, I built a simulation and control platform for a fleet of autonomous security robots. Instead of testing in a generic empty world, I recreated Novation City / Technopôle de Sousse, Enova's actual site, using real building and road data from OpenStreetMap so the robots patrol a digital twin of the ground they're meant to guard, using the actual robot model Enova operates in the field.The project has three main pieces: autonomous navigation built on sensor fusion, combining IMU, GPS, LiDAR, and wheel odometry through an EKF for stable localization, feeding into a full Nav2 stack with layered costmaps for path planning and obstacle avoidance; a multi-robot setup where several robots run simultaneously in the same world, each with its own independent navigation stack; and a multi-agent layer, where each agent has its own dedicated skills and tools (task allocation, collision prediction, patrol coordination) exposed through an MCP server, so the fleet can be coordinated through an AI agent and a live dashboard.",
     image_path: RoboFleetReal,
-    images: [RoboFleetReal,RoboFleetRobots,RoboFleetGZMap,RoboFleetMapImg,RoboFleetRviz],
+    images: [RoboFleetReal, RoboFleetRobots, RoboFleetGZMap, RoboFleetRviz, RoboFleetDashboard],
     link: "",
     color: "#67aa69",
     tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Multi-Agent Systems", "LangGraphs"],

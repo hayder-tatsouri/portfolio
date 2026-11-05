@@ -18,16 +18,16 @@ import TaskVisionHighchart from "../public/img/projects/taskVision/highchart.jpg
 import TaskVisionClaudeClient from "../public/img/projects/taskVision/claude_desktop_as_client.png";
 import FullSetupImg from "../public/img/projects/fpv_drone/full_steup.jpg";
 import TwoInchDroneImg from "../public/img/projects/fpv_drone/2inch_drone.jpg";
-import FpvImg from "../public/img/projects/fpv_drone/fpv_img.png";
+import PavoPicoImg from "../public/img/projects/fpv_drone/PavoPico.jpg";
 import FpvImgFlying from "../public/img/projects/fpv_drone/fpv_img_flying.png";
 import ProdTrackSystemImg from "../public/img/projects/prodTrack/better_img_for_system.png";
 import ProdTrackDashboardImg from "../public/img/projects/prodTrack/dashboard.png";
 import ProdTrackTaskImg from "../public/img/projects/prodTrack/task_assignment.png";
 import ProdTrackTeamImg from "../public/img/projects/prodTrack/team_image.jpg";
 import ProdTrackTrackingImg from "../public/img/projects/prodTrack/tracking_board.png";
-import RoboFleetMapImg from "../public/img/projects/robo_fleet/map.jpeg";
+import RoboFleetDashboard from "../public/img/projects/robo_fleet/dashboard.png";
 import RoboFleetRviz from "../public/img/projects/robo_fleet/rviz.png";
-import RoboFleetRobots from "../public/img/projects/robo_fleet/robots.png";
+import RoboFleetRobots from "../public/img/projects/robo_fleet/robots_inGazebo.png";
 import RoboFleetGZMap from "../public/img/projects/robo_fleet/gz_map.png";
 import RoboFleetReal from "../public/img/projects/robo_fleet/pguard_real.jpg";
 import KynoraArm from "../public/img/projects/kynora/SO101_arm.png";
@@ -103,14 +103,14 @@ const projects = [
     id: 3,
     title: "2-Inch FPV Drone",
     description:
-      "Un petit drone FPV de 2 pouces, construit et réglé pour le vol freestyle — format compact, excellent rapport puissance/poids et installation first-person-view complète.",
+      "Un petit drone FPV de 2 pouces, construit et réglé pour le vol freestyle — format compact, excellent rapport puissance/poids et installation first-person-view complète. J'ai travaillé sur ce drone 2 pouces ainsi que sur le drone PavoPico.",
     detailed_description:
-      "Un drone FPV 2 pouces sur mesure axé sur la compacité et des performances de vol agressives. Le projet a couvert la sélection des composants, l'assemblage du châssis, le soudage, la configuration du contrôleur de vol et le réglage pour un comportement de vol stable et nerveux, le tout dans un format minuscule avec une caméra FPV et un émetteur vidéo complets.",
+      "Un drone FPV 2 pouces sur mesure axé sur la compacité et des performances de vol agressives. Le projet a couvert la sélection des composants, l'assemblage du châssis, le soudage, la configuration du contrôleur de vol et le réglage pour un comportement de vol stable et nerveux, le tout dans un format minuscule avec une caméra FPV et un émetteur vidéo complets. J'ai travaillé sur deux constructions FPV : ce drone 2 pouces et le drone PavoPico.",
     image_path: FullSetupImg,
     images: [
       FullSetupImg,
       TwoInchDroneImg,
-      FpvImg,
+      PavoPicoImg,
       FpvImgFlying,
     ],
     link: "",
@@ -155,7 +155,7 @@ const projects = [
       MicroFarrV1Img,
       MicroFarrV1CompImg,
     ],
-    link: "https://github.com/hayder-tatsouri/Maze-solver-robot",
+    link: "https://github.com/AbdelbakiJeddi/micro_farr/tree/nav_0.2H",
     color: "#dc2626",
     tech: ["Arduino", "ESP32", "FreeRTOS", "IMU", "ToF Sensors", "Ultrasonic Sensors", "Sensor Fusion", "PID Control", "C/C++", "Embedded Systems"],
     demo: "",
@@ -182,7 +182,7 @@ const projects = [
     detailed_description:
       "Pendant mon stage chez Enova Robotics, j'ai construit une plateforme de simulation et de contrôle pour une flotte de robots de sécurité autonomes. Plutôt que de tester dans un monde vide générique, j'ai recréé Novation City / Technopôle de Sousse — le site réel d'Enova — en extrayant les données réelles des bâtiments et routes d'OpenStreetMap pour que les robots patrouillent un jumeau numérique fidèle du terrain qu'ils sont censés garder. Le projet s'est articulé autour de trois axes principaux : la navigation autonome avec un stack Nav2 complet utilisant Regulated Pure Pursuit et des costmaps multicouches avec évitement d'obstacles LiDAR ; une architecture multi-robots où plusieurs robots opèrent simultanément dans le même monde, chacun avec son propre stack de navigation indépendant ; et une couche multi-agents — un serveur MCP exposant des outils d'allocation de tâches, de prédiction de collisions et de commandes en langage naturel à un LLM (Claude), permettant de coordonner et surveiller la flotte via un agent IA et un dashboard en direct.",
     image_path: RoboFleetReal,
-    images: [RoboFleetReal,RoboFleetRobots,RoboFleetGZMap,RoboFleetMapImg,RoboFleetRviz],
+    images: [RoboFleetReal, RoboFleetRobots, RoboFleetGZMap, RoboFleetRviz, RoboFleetDashboard],
     link: "",
     color: "#7c3aed",
     tech: ["ROS2", "Gazebo Harmonic", "Nav2", "Python", "MCP", "Claude API"],
