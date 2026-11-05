@@ -34,7 +34,20 @@ export default function Home() {
   // Remembers the scroll position so we can restore it when the Parallax is
   // remounted (the library freezes pages/offsets at mount, so changing the
   // project factor requires a remount - but we must not lose the user's place).
-  const savedScrollRef = useRef(0);  // Lorsque la page se charge, la variable est à false
+  const savedScrollRef = useRef(0);
+  // True while we are restoring the position coming back from a project page:
+  // layout is still settling (projects grid gets measured), so scroll events
+  // caused by clamping must not overwrite the saved position.
+  const restoringRef = useRef(false);
+  if (typeof window !== "undefined" && savedScrollRef.current === 0) {
+    try {
+      if (sessionStorage.getItem("returnFromProject") === "1") {
+        sessionStorage.removeItem("returnFromProject");
+        savedScrollRef.current = Number(sessionStorage.getItem("homeScroll")) || 0;
+        restoringRef.current = savedScrollRef.current > 0;
+      }
+    } catch {}
+  }  // Lorsque la page se charge, la variable est à false
   useEffect(() => {
     setLoading(false);
   }, []);
@@ -66,7 +79,11 @@ export default function Home() {
   const handleScroll = () => {
     if (parallaxRef.current) {
       const scrollTop = parallaxRef.current.container.current.scrollTop;
+      if (restoringRef.current) return;
       savedScrollRef.current = scrollTop;
+      try {
+        sessionStorage.setItem("homeScroll", String(scrollTop));
+      } catch {}
       const pageHeight = parallaxRef.current.space;
       setIsTop(10 * scrollTop < 9 * pageHeight);
 
@@ -84,7 +101,16 @@ export default function Home() {
       // Restore the scroll position after a remount so the user doesn't get
       // thrown back to the top when the project factor changes.
       container.scrollTop = savedScrollRef.current;
-      return () => container.removeEventListener("scroll", handleScroll);
+      const t = restoringRef.current
+        ? setTimeout(() => {
+            restoringRef.current = false;
+            handleScroll();
+          }, 1500)
+        : undefined;
+      return () => {
+        if (t) clearTimeout(t);
+        container.removeEventListener("scroll", handleScroll);
+      };
     }
   }, [totalPages]);
 
