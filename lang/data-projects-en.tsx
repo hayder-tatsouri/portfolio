@@ -109,13 +109,13 @@ const projects = [
       "A 2-inch freestyle quad I built from scratch. It's light, quick, and set up for aggressive flying. I worked on this 2-inch drone and also on the PavoPico drone.",
     detailed_description:
       "A custom 2-inch FPV drone build focused on compact size and aggressive flying performance. The project covered component selection, frame assembly, soldering, flight controller configuration, and tuning for stable, punchy flight behavior, all packed into a tiny footprint with a full FPV camera and video transmitter setup. I worked on two FPV builds: this 2-inch drone and the PavoPico drone. The 2-inch build is powered by a SpeedyBee F405 AIO flight controller.",
-    image_path: DronathonImg,
+    image_path: FullSetupImg,
     images: [
-      DronathonImg,
       FullSetupImg,
       TwoInchDroneImg,
       PavoPicoImg,
       FpvImgFlying,
+      DronathonImg,
     ],
     videoId: "3WWjgtDNfrI",
 
