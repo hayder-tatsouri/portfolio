@@ -18,6 +18,7 @@ import TaskVisionHighchart from "../public/img/projects/taskVision/highchart.jpg
 import TaskVisionClaudeClient from "../public/img/projects/taskVision/claude_desktop_as_client.png";
 import FullSetupImg from "../public/img/projects/fpv_drone/full_steup.jpg";
 import TwoInchDroneImg from "../public/img/projects/fpv_drone/2inch_drone.jpg";
+import DronathonImg from "../public/img/projects/fpv_drone/dronathon.jpg";
 import PavoPicoImg from "../public/img/projects/fpv_drone/PavoPico.jpg";
 import FpvImgFlying from "../public/img/projects/fpv_drone/fpv_img_flying.png";
 import ProdTrackSystemImg from "../public/img/projects/prodTrack/better_img_for_system.png";
@@ -106,8 +107,9 @@ const projects = [
       "Un petit drone FPV de 2 pouces, construit et réglé pour le vol freestyle — format compact, excellent rapport puissance/poids et installation first-person-view complète. J'ai travaillé sur ce drone 2 pouces ainsi que sur le drone PavoPico.",
     detailed_description:
       "Un drone FPV 2 pouces sur mesure axé sur la compacité et des performances de vol agressives. Le projet a couvert la sélection des composants, l'assemblage du châssis, le soudage, la configuration du contrôleur de vol et le réglage pour un comportement de vol stable et nerveux, le tout dans un format minuscule avec une caméra FPV et un émetteur vidéo complets. J'ai travaillé sur deux constructions FPV : ce drone 2 pouces et le drone PavoPico. Le drone 2 pouces est équipé d'un contrôleur de vol SpeedyBee F405 AIO.",
-    image_path: FullSetupImg,
+    image_path: DronathonImg,
     images: [
+      DronathonImg,
       FullSetupImg,
       TwoInchDroneImg,
       PavoPicoImg,
